@@ -1,0 +1,1258 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="西南交通大学数学建模协会提供的数学建模导航。">
+      
+      
+        <meta name="author" content="dramwig">
+      
+      
+      
+        <link rel="prev" href="../%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/">
+      
+      
+        <link rel="next" href="../%E5%85%B8%E5%9E%8B%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90/">
+      
+      <link rel="icon" href="https://pic.imgdb.cn/item/64c26a631ddac507cc8cd206.webp">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+    
+    
+      
+        <title>插值算法 - 交大数学建模导航 - MathNav</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../resources/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="交大数学建模导航 - MathNav" class="md-header__button md-logo" aria-label="交大数学建模导航 - MathNav" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            交大数学建模导航 - MathNav
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              插值算法
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="交大数学建模导航 - MathNav" class="md-nav__button md-logo" aria-label="交大数学建模导航 - MathNav" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    交大数学建模导航 - MathNav
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.en/" class="md-nav__link">
+        Home-en
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../update/" class="md-nav__link">
+        Update
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/" class="md-nav__link">
+        书籍
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          模型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%81%B0%E8%89%B2%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90/" class="md-nav__link">
+        灰色关联分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="md-nav__link">
+        回归分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/" class="md-nav__link">
+        聚类分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7/" class="md-nav__link">
+        模糊综合评价
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/" class="md-nav__link">
+        因子分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/" class="md-nav__link">
+        优劣解距离法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        主成分分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="md-nav__link">
+        层次分析法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          插值算法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        插值算法
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    分段插值
+  </a>
+  
+    <nav class="md-nav" aria-label="分段插值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    分段线性插值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    分段二次插值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    多项式插值
+  </a>
+  
+    <nav class="md-nav" aria-label="多项式插值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    拉格朗日插值法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    牛顿插值法
+  </a>
+  
+    <nav class="md-nav" aria-label="牛顿插值法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    商差
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    拉格朗日插值与牛顿插值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    龙格现象
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hermite" class="md-nav__link">
+    埃尔米特(Hermite)插值
+  </a>
+  
+    <nav class="md-nav" aria-label="埃尔米特(Hermite)插值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    原理
+  </a>
+  
+    <nav class="md-nav" aria-label="原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    推广
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    代码
+  </a>
+  
+    <nav class="md-nav" aria-label="代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    手写函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matlab" class="md-nav__link">
+    调用Matlab封装函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    样条插值
+  </a>
+  
+    <nav class="md-nav" aria-label="样条插值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    三次样条插值代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B8%E5%9E%8B%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90/" class="md-nav__link">
+        典型相关分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        分类模型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          算法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/" class="md-nav__link">
+        拟牛顿法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E4%B8%8E%E9%AB%98%E6%96%AF%E7%89%9B%E9%A1%BF%E6%B3%95/" class="md-nav__link">
+        牛顿迭代与高斯牛顿法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E7%99%BB%E5%B1%B1%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        登山问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E4%BA%8C%E7%BB%B4%E5%AF%BC%E7%83%AD/" class="md-nav__link">
+        二维导热
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        旅行商问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E5%B1%B1%E5%8C%BA%E5%9C%B0%E8%B2%8C/" class="md-nav__link">
+        山区地貌
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    分段插值
+  </a>
+  
+    <nav class="md-nav" aria-label="分段插值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    分段线性插值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    分段二次插值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    多项式插值
+  </a>
+  
+    <nav class="md-nav" aria-label="多项式插值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    拉格朗日插值法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    牛顿插值法
+  </a>
+  
+    <nav class="md-nav" aria-label="牛顿插值法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    商差
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    拉格朗日插值与牛顿插值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    龙格现象
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hermite" class="md-nav__link">
+    埃尔米特(Hermite)插值
+  </a>
+  
+    <nav class="md-nav" aria-label="埃尔米特(Hermite)插值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    原理
+  </a>
+  
+    <nav class="md-nav" aria-label="原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    推广
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    代码
+  </a>
+  
+    <nav class="md-nav" aria-label="代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    手写函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matlab" class="md-nav__link">
+    调用Matlab封装函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    样条插值
+  </a>
+  
+    <nav class="md-nav" aria-label="样条插值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    三次样条插值代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">插值算法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><strong>定义</strong>：给定一组离散点列，要求一条曲线将点依次连接，称之为插值<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。</p>
+<p>利用已知的点建立合适的插值函数 <span class="arithmatex">\(f(x)\)</span> ,未知点 <span class="arithmatex">\(x_i\)</span> 由插值函数 <span class="arithmatex">\(f(x)\)</span> 可以求得 <span class="arithmatex">\((x_i,f(x_i))\)</span> 近似代替未知点<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>。</p>
+<p><strong>作用</strong>：利用插值曲线可以对数据进行填充——用少量模拟产生一些靠谱的新数据。</p>
+<h2 id="_2">分段插值<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">分段线性插值<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>这是最简单也最基础的插值方法，折现统计图的连接方式就是用的分段线性插值。使用函数表时一般直接用该方法。</p>
+<p><img alt="某折线统计图" src="https://s2.loli.net/2022/02/06/7mO13pyTznUFW26.png" /></p>
+<h3 id="_4">分段二次插值<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>取结点 <span class="arithmatex">\(x_i\)</span> 以及其左右的三个节点 <span class="arithmatex">\(x_{i-1},x_{i},x_{i+1}\)</span> 进行在区间 <span class="arithmatex">\([x_{i-1},x_{i+1}]\)</span> 的二次函数插值，即</p>
+<div class="arithmatex">\[
+f(x) \approx L_{2}(x)=\sum_{k=i-1}^{i+1}\left[y_{k} \prod_{j=i-1 \atop j \neq k}^{i+1} \frac{\left(x-x_{j}\right)}{\left(x_{k}-x_{i}\right)}\right]
+\]</div>
+<p>其意义是用分段抛物线代替 <span class="arithmatex">\(y=f(x)\)</span> <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>。这个方法能保证函数的连续型与一定看起来的平滑性，但是**不保证函数光滑**，即不保证函数可导。</p>
+<p>分段二维插值可以很好的避免多项式插值带来的龙格效应，同时简单易于理解又能看起来平滑，是很常用的方法。</p>
+<h2 id="_5">多项式插值<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>多项式插值的本质是对于 <span class="arithmatex">\(n+1\)</span> 个互不相同的节点 <span class="arithmatex">\((x_i,y_i) (i=0,1,2,\dots,n)\)</span> 求得一个唯一的多项式：
+$$
+L_{n}(x)=a_{0}+a_{1} x+a_{2} x^{2}+\ldots+a_{n} x^{n}
+$$
+使得 <span class="arithmatex">\(L_n(x_i)=y_i\)</span> ,即</p>
+<div class="arithmatex">\[
+\left[\begin{array}{cccc}
+1 &amp; x_{0} &amp; \cdots &amp; x_{0}^{n} \\
+1 &amp; x_{1} &amp; \cdots &amp; x_{1}^{n} \\
+\vdots &amp; \vdots &amp; \cdots &amp; \vdots \\
+1 &amp; x_{n} &amp; \cdots &amp; x_{n}^{n}
+\end{array}\right] \left[\begin{array}{c}
+a_{0} \\
+a_{1} \\
+\vdots \\
+a_{n}
+\end{array}\right] =\left[\begin{array}{c}
+y_{0} \\
+y_{1} \\
+\vdots \\
+y_{n}
+\end{array}\right]
+\]</div>
+<p>对于上述范德蒙行列式，易得，<span class="arithmatex">\([a_1,a_2,\dotsb]\)</span> 有且仅有一组解。</p>
+<h3 id="_6">拉格朗日插值法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>上多项式组易解得</p>
+<p>$$
+L(x)=y_1\frac{(x-x_2)(x-x_3)...(x-x_n)}{(x_1-x_2)(x_1-x_3)...(x_1-x_n)}+y_2\frac{(x-x_1)(x-x_3)...(x-x_n)}{(x_2-x_1)(x_2-x_3)...(x_2-x_n)}...+y_{n}\frac{(x-x_1)(x-x_2)...(x-x_{n-1})}{(x_{n}-x_1)(x_{n}-x_2)...(x_{n}-x_{n-1})}
+$$
+即
+$$
+L(x)=\sum_{i=1}^{n}y_i \prod_{j=1,j \neq  i}^n \frac{x-x_j}{x_i-x_j} 
+$$
+为拉格朗日插值法。</p>
+<p><strong>注</strong>：拉格朗日插值公式在理论分析理解上很容易理解，但是若插值节点发生改变时，插值公式随之就要重新计算生成，在实际计算中会占用大量的计算量。牛顿法的出现正是克服这个问题<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup>。</p>
+<h3 id="_7">牛顿插值法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\begin{aligned}
+f(x)=&amp; f\left(x_{0}\right)+f\left[x_{0}, x_{1}\right]\left(x-x_{0}\right) \\
+&amp;+f\left[x_{0}, x_{1}, x_{2}\right]\left(x-x_{0}\right)\left(x-x_{1}\right)+\cdots \\
+&amp;+f\left[x_{0}, x_{1}, \cdots, x_{n-2}, x_{n-1}\right]\left(x-x_{0}\right)\left(x-x_{1}\right) \cdots\left(x-x_{n-3}\right)\left(x-x_{n-2}\right) \\
+&amp;+f\left[x_{0}, x_{1}, \cdots, x_{n-1}, x_{n}\right]\left(x-x_{0}\right)\left(x-x_{1}\right) \cdots\left(x-x_{n-2}\right)\left(x-x_{n-1}\right)
+\end{aligned}
+\]</div>
+<h4 id="_8">商差<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li>一阶差商</li>
+</ul>
+<div class="arithmatex">\[
+f\left[x_{i}, x_{j}\right]=\frac{f\left(x_{i}\right)-f\left(x_{j}\right)}{x_{i}-x_{j}} \quad\left(i \neq j, x_{i} \neq x_{j}\right)
+\]</div>
+<ul>
+<li>二阶差商</li>
+</ul>
+<div class="arithmatex">\[
+f\left[x_{i}, x_{j}, x_{k}\right]=\frac{f\left[x_{i}, x_{j}\right]-f\left[x_{j}, x_{k}\right]}{x_{i}-x_{k}} \quad(i \neq k)
+\]</div>
+<ul>
+<li>n阶差商</li>
+</ul>
+<div class="arithmatex">\[
+f\left[x_{0}, x_{1}, \Lambda x_{n}\right]=\frac{f\left[x_{0}, x_{1}, \Lambda, x_{n-1}\right]-f\left[x_{1}, x_{2}, \Lambda x_{n}\right]}{x_{0}-x_{n}}
+\]</div>
+<p>由以上定义我们的到**差商表**如下：</p>
+<div class="arithmatex">\[
+\begin{array}{cccrcc}
+x_{i} &amp; y_{i} &amp; \text { 一阶差商 } &amp; \text { 二阶差商 } &amp; \cdots \cdots &amp; n \text { 阶差商 } \\
+&amp; &amp; &amp; &amp; \\
+x_{0} &amp; f\left(x_{0}\right) &amp; &amp; &amp; \\
+x_{1} &amp; f\left(x_{1}\right) &amp; f\left[x_{0}, x_{1}\right] &amp; &amp; \\
+x_{2} &amp; f\left(x_{2}\right) &amp; f\left[x_{1}, x_{2}\right] &amp; f\left[x_{0}, x_{1}, x_{2}\right] &amp; \\
+&amp; \cdots \cdots &amp; \cdots \cdots &amp; \cdots \cdots &amp; \\
+x_{n-1} &amp; f\left(x_{n-1}\right) &amp; \cdots \cdots &amp; \cdots \cdots \\
+x_{n} &amp; f\left(x_{n}\right) &amp; f\left[x_{n-1}, x_{n}\right] &amp; f\left[x_{n-2}, x_{n-1}, x_{n}\right] &amp;\dots  &amp;f\left[x_{n} \ldots, x_{n}\right] \\
+\end{array}
+\]</div>
+<p>我们可以得到下面公式：</p>
+<div class="arithmatex">\[
+\begin{array}{l}
+f(x)=f\left(x_{\theta}\right)+f\left[x, x_{\theta}\right]\left(x-x_{\theta}\right),\\
+f\left[x, x_{0}\right]=f\left[x_{0}, x_{1}\right]+f\left[x, x_{0}, x_{1}\right]\left(x-x_{1}\right),\\
+f\left[x, x_{0}, x_{1}\right]=f\left[x_{0}, x_{1}, x_{2}\right]+f\left[x, x_{0}, x_{1}, x_{2}\right]\left(x-x_{2}\right),\\
+\cdots \\
+f\left[x, x_{\theta}, \cdots, x_{m-1}\right]=f\left[x_{\theta}, x_{1}, \cdots, x_{n}\right]+J\left[x, x_{\theta}, \cdots, x_{n}\right]\left(x-x_{n}\right)
+\end{array}
+\]</div>
+<p>可得到牛顿插值法。</p>
+<h3 id="_9">拉格朗日插值与牛顿插值<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>牛顿插值法和拉格朗日插值法两者都是多项式插值法，本质上，两者的结果相同，只不过表示的形式不同。牛顿插
+值法的计算过程具有继承性有易于变动的特点。</p>
+<h3 id="_10">龙格现象<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>当次数渐高，很容易在多项式插值的边界处产生巨大波动，称为龙格现象。</p>
+<p><a href="https://www.zhihu.com/question/39329749">这里</a>是龙格现象产生原因</p>
+<p><img alt="龙格现象展示" src="https://s2.loli.net/2022/02/06/6uklOIA1qyXJ5UZ.png" /></p>
+<h2 id="hermite">埃尔米特(Hermite)插值<a class="headerlink" href="#hermite" title="Permanent link">&para;</a></h2>
+<p>不但要求在节点处上的函数值相等，而且还要求对应的导数值也相等，甚至要求高阶导数也相等，满足这种要求的插值多项式就是“Hermite插值多项式”<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>。</p>
+<p>直接使用Hermite插值得到的多项式次数较高，也存在着“龙格现象（Runge phenomenon）”。因此，在实际应用中，往往使用分段三次Hermite插值多项式（PCHIP），来提高“模拟数据的准确性”<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>。</p>
+<h3 id="_11">原理<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>假定已知函数 <span class="arithmatex">\(f(x)\)</span> 在揷值区间 <span class="arithmatex">\([p, q]\)</span> 上的 <span class="arithmatex">\(n+1\)</span> 个互不相同的节点 <span class="arithmatex">\(x_{i}(i=0,1, \ldots, n)\)</span> 处满足 <span class="arithmatex">\(f\left(x_{i}\right)=f_{i}\)</span> 及 <span class="arithmatex">\(f^{\prime}\left(x_{i}\right)=f_{i}^{\prime}(i=0,1,2, \ldots, n)\)</span> , 如果函数 <span class="arithmatex">\(G(x)\)</span>  的存在满足下列条件:
+1. <span class="arithmatex">\(G(x)\)</span>  在每个小区间上的多项式次数为 3 ;
+2. <span class="arithmatex">\(G(x) \in C^{1}[a, b]\)</span> ;
+3. <span class="arithmatex">\(G\left(x_{i}\right)=f\left(x_{i}\right), \quad G^{\prime}\left(x_{i}\right)=f^{\prime}\left(x_{i}\right), \quad i=(0,1, \ldots, n)\)</span> 
+就称 <span class="arithmatex">\(G(x)\)</span> 是 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(n+1\)</span> 个节点 <span class="arithmatex">\(x_{i}\)</span> 上的分段三次埃尔米特插值多项式。</p>
+<div class="arithmatex">\[
+\begin{aligned}
+G(x)=&amp; h_{k} y_{k}(x)+h_{k+1} y_{k+1}(x)+H_{k}(x) y_{k}^{\prime}+H_{k+1}(x) y_{k+1}^{\prime} \\
+=&amp;\left(1+2 \frac{x-x_{k}}{x_{k+1}-x_{k}}\right)\left(\frac{x-x_{k+1}}{x_{k}-x_{k+1}}\right)^{2} y_{k}+\left(1+2 \frac{x-x_{k+1}}{x_{k}-x_{k+1}}\right)\left(\frac{x-x_{k}}{x_{k+1}-x_{k}}\right)^{2} y_{k+1} \\
+&amp;+\left(x-x_{k}\right)\left(\frac{x-x_{k+1}}{x_{k}-x_{k+1}}\right)^{2} y_{k}^{\prime}+\left(x-x_{k+1}\right)\left(\frac{x-x_{k}}{x_{k+1}-x_{k}}\right)^{2} y_{k+1}^{\prime}
+\end{aligned}
+\]</div>
+<h4 id="_12">推广<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>Hermite 揷值多项式为:</p>
+<div class="arithmatex">\[
+ H(x)=\sum_{i=0}^{n} h_{i}\left[\left(x_{i}-x\right)\left(2 a_{i} y_{i}-y_{i}^{\prime}\right)+y_{i}\right]
+\]</div>
+<p>其中:</p>
+<div class="arithmatex">\[
+h_{i}=\prod_{j=0 \atop j \neq i}^{n}\left(\frac{x-x_{j}}{x_{i}-x_{j}}\right)^{2}, \quad a_{i}=\sum_{j=0 \atop j \neq i}^{n} \frac{1}{x_{i}-x_{j}}
+\]</div>
+<h3 id="_13">代码<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<h4 id="_14">手写函数<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>设n个节点的数据以数组 <code>x0</code>（已知点的横坐标），<code>y0</code>（函数值），<code>y1</code>（导数值）输入（注意 Matlat 的数组下标从 <span class="arithmatex">\(1\)</span> 开始），<span class="arithmatex">\(m\)</span> 个插值点以数组 <code>x</code> 输入，输出数组 <code>y</code> 为 <span class="arithmatex">\(m\)</span> 个插值。编</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>y<span class="p">=</span><span class="nf">hermite</span><span class="p">(</span>x0,y0,y1,x<span class="p">);</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">length</span><span class="p">(</span><span class="n">x0</span><span class="p">);</span><span class="n">m</span><span class="p">=</span><span class="nb">length</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span>
+<span class="w">    </span><span class="n">yy</span><span class="p">=</span><span class="mf">0.0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+<span class="w">        </span><span class="n">h</span><span class="p">=</span><span class="mf">1.0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">a</span><span class="p">=</span><span class="mf">0.0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nb">j</span><span class="o">~=</span><span class="nb">i</span>
+<span class="w">                </span><span class="n">h</span><span class="p">=</span><span class="n">h</span><span class="o">*</span><span class="p">((</span><span class="n">x</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">x0</span><span class="p">(</span><span class="nb">j</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">x0</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">-</span><span class="n">x0</span><span class="p">(</span><span class="nb">j</span><span class="p">)))</span>^<span class="mi">2</span><span class="p">;</span>
+<span class="w">                </span><span class="n">a</span><span class="p">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">x0</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">-</span><span class="n">x0</span><span class="p">(</span><span class="nb">j</span><span class="p">))</span><span class="o">+</span><span class="n">a</span><span class="p">;</span>
+<span class="w">            </span><span class="k">end</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">        </span><span class="n">yy</span><span class="p">=</span><span class="n">yy</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="p">((</span><span class="n">x0</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">(</span><span class="n">k</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">y0</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">-</span><span class="n">y1</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">+</span><span class="n">y0</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="n">y</span><span class="p">(</span><span class="n">k</span><span class="p">)=</span><span class="n">yy</span><span class="p">;</span>
+<span class="k">end</span>
+</code></pre></div>
+<h4 id="matlab">调用Matlab封装函数<a class="headerlink" href="#matlab" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span>
+<span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"> </span>
+<span class="n">xq1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="mf">.01</span><span class="p">:</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">pchip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xq1</span><span class="p">);</span>
+<span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">spline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xq1</span><span class="p">);</span>
+<span class="n">m</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">makima</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xq1</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;o&#39;</span><span class="p">,</span><span class="n">xq1</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="s">&#39;-&#39;</span><span class="p">,</span><span class="n">xq1</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="s">&#39;-.&#39;</span><span class="p">,</span><span class="n">xq1</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="s">&#39;--&#39;</span><span class="p">)</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;Sample Points&#39;</span><span class="p">,</span><span class="s">&#39;pchip&#39;</span><span class="p">,</span><span class="s">&#39;spline&#39;</span><span class="p">,</span><span class="s">&#39;makima&#39;</span><span class="p">,</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="s">&#39;SouthEast&#39;</span><span class="p">)</span>
+</code></pre></div>
+<img alt="" src="https://ww2.mathworks.cn/help/matlab/ref/datainterpolationcomparisonexample_01_zh_CN.png" /> | <img alt="" src="https://ww2.mathworks.cn/help/matlab/ref/datainterpolationcomparisonexample_02_zh_CN.png" />
+---|---</p>
+<h2 id="_15">样条插值<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>所谓样条（Spline）本来是工程设计中使用的一种绘图工具，它是富有弹性的细木条或细金属条。绘图员利用它把一些已知点连接成一条光滑曲线（称为样条曲线），并使连接点处有连续的曲率<sup id="fnref3:4"><a class="footnote-ref" href="#fn:4">4</a></sup>。</p>
+<p>数学上将**具有一定光滑性的分段多项式**称为样条函数。</p>
+<p>对于 <span class="arithmatex">\(\Delta : \quad a=x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n-1}&lt;x_{n}=b\)</span> 满足：</p>
+<ol>
+<li>在每个小区间 <span class="arithmatex">\(\left[x_{i}, x_{i-1}\right](i=0,1, \cdots, n-1)\)</span> 上 <span class="arithmatex">\(s(x)\)</span> 是 <span class="arithmatex">\(k\)</span> 次多项式。</li>
+<li><span class="arithmatex">\(s(x)\)</span> 在 <span class="arithmatex">\([a, b]\)</span> 上具有 <span class="arithmatex">\(k-1\)</span> 阶连续导数。即 <span class="arithmatex">\(S_{i}^{(j)}(x_{i+1})=S_{i+1}^{(j)}(x_{i+1})\)</span> <span class="arithmatex">\((j=0,1,\dots,k-1)\)</span></li>
+</ol>
+<p>一般形式为：</p>
+<div class="arithmatex">\[
+s_{k}(x)=\sum_{i=0}^{k} \frac{\alpha_{i} x^{i}}{i !}+\sum_{j=1}^{n-1} \frac{\beta_{j}}{k !}\left(x-x_{j}\right)_{+}^{k}
+\]</div>
+<p>在实际中最常用的是二次样条函数和**三次样条函数**。</p>
+<p>三次样条生成的曲线更加光滑，相较Hermite更适合曲线(三角函数)。</p>
+<h3 id="_16">三次样条插值代码<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>‐<span class="nb">pi</span><span class="p">:</span><span class="nb">pi</span><span class="p">;</span>
+<span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="n">new_x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>‐<span class="nb">pi</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="nb">pi</span><span class="p">;</span>
+<span class="n">p1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">pchip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">new_x</span><span class="p">);</span><span class="w"> </span><span class="c">%分段三次埃尔米特插值</span>
+<span class="n">p2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">spline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">new_x</span><span class="p">);</span><span class="w"> </span><span class="c">%三次样条插值</span>
+<span class="n">pp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">csape</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">y0_ext</span><span class="p">,</span><span class="n">conds</span><span class="p">);</span><span class="w"> </span><span class="c">%另一个三次样条插值？</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&#39;o&#39;</span><span class="p">,</span><span class="n">new_x</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="s">&#39;r‐&#39;</span><span class="p">,</span><span class="n">new_x</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="s">&#39;b‐&#39;</span><span class="p">)</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;样本点&#39;</span><span class="p">,</span><span class="s">&#39;三次埃尔米特插值&#39;</span><span class="p">,</span><span class="s">&#39;三次样条插值&#39;</span><span class="p">,</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="s">&#39;SouthEast&#39;</span><span class="p">)</span><span class="w"> </span><span class="c">%标注显示在东南方向</span>
+</code></pre></div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>《数学建模算法与运用》&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>清风数学建模&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://zhuanlan.zhihu.com/p/64855561">https://zhuanlan.zhihu.com/p/64855561</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://blog.csdn.net/Rayme629/article/details/113174004">https://blog.csdn.net/Rayme629/article/details/113174004</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://www.jianshu.com/p/6dfca5f6b249">https://www.jianshu.com/p/6dfca5f6b249</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p><a href="https://ww2.mathworks.cn/help/matlab/ref/pchip.html">https://ww2.mathworks.cn/help/matlab/ref/pchip.html</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        
+      
+    
+  </body>
+</html>

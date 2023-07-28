@@ -1,0 +1,1123 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="西南交通大学数学建模协会提供的数学建模导航。">
+      
+      
+        <meta name="author" content="dramwig">
+      
+      
+      
+        <link rel="prev" href="../%E7%81%B0%E8%89%B2%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90/">
+      
+      
+        <link rel="next" href="../%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/">
+      
+      <link rel="icon" href="https://pic.imgdb.cn/item/64c26a631ddac507cc8cd206.webp">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+    
+    
+      
+        <title>回归分析 - 交大数学建模导航 - MathNav</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../resources/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="交大数学建模导航 - MathNav" class="md-header__button md-logo" aria-label="交大数学建模导航 - MathNav" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            交大数学建模导航 - MathNav
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              回归分析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="交大数学建模导航 - MathNav" class="md-nav__button md-logo" aria-label="交大数学建模导航 - MathNav" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    交大数学建模导航 - MathNav
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.en/" class="md-nav__link">
+        Home-en
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../update/" class="md-nav__link">
+        Update
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/" class="md-nav__link">
+        书籍
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          模型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%81%B0%E8%89%B2%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90/" class="md-nav__link">
+        灰色关联分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          回归分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        回归分析
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    多元线性回归
+  </a>
+  
+    <nav class="md-nav" aria-label="多元线性回归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    模型结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参数估计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    显著性检验
+  </a>
+  
+    <nav class="md-nav" aria-label="显著性检验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    方程显著性检验
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    系数显著性检验
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    检验异方差
+  </a>
+  
+    <nav class="md-nav" aria-label="检验异方差">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    多种检验方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    解决方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    检验多重共线性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spss" class="md-nav__link">
+    SPSS实现多元线性回归
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lasso" class="md-nav__link">
+    岭回归和Lasso回归
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    多元二项式回归
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    非线性回归
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/" class="md-nav__link">
+        聚类分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7/" class="md-nav__link">
+        模糊综合评价
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/" class="md-nav__link">
+        因子分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/" class="md-nav__link">
+        优劣解距离法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        主成分分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="md-nav__link">
+        层次分析法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8F%92%E5%80%BC%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        插值算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B8%E5%9E%8B%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90/" class="md-nav__link">
+        典型相关分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        分类模型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          算法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/" class="md-nav__link">
+        拟牛顿法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E4%B8%8E%E9%AB%98%E6%96%AF%E7%89%9B%E9%A1%BF%E6%B3%95/" class="md-nav__link">
+        牛顿迭代与高斯牛顿法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E7%99%BB%E5%B1%B1%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        登山问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E4%BA%8C%E7%BB%B4%E5%AF%BC%E7%83%AD/" class="md-nav__link">
+        二维导热
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        旅行商问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E5%B1%B1%E5%8C%BA%E5%9C%B0%E8%B2%8C/" class="md-nav__link">
+        山区地貌
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    多元线性回归
+  </a>
+  
+    <nav class="md-nav" aria-label="多元线性回归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    模型结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参数估计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    显著性检验
+  </a>
+  
+    <nav class="md-nav" aria-label="显著性检验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    方程显著性检验
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    系数显著性检验
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    检验异方差
+  </a>
+  
+    <nav class="md-nav" aria-label="检验异方差">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    多种检验方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    解决方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    检验多重共线性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spss" class="md-nav__link">
+    SPSS实现多元线性回归
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lasso" class="md-nav__link">
+    岭回归和Lasso回归
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    多元二项式回归
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    非线性回归
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">回归分析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">多元线性回归<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">模型结构<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>多元线性回归是研究一个应变量依赖多个自变量的变化关系，并用线性关系刻画的模型。如下：</p>
+<div class="arithmatex">\[\left\{\begin{matrix}
+y = \beta_0 + \beta_1 x_1 + \cdots + \beta_mx_m + \varepsilon\\
+\varepsilon \sim N(0,\sigma ^2)
+\end{matrix}\right.\]</div>
+<p>其中：<span class="arithmatex">\(\beta_0,\beta_1,\dotsb,\beta_m\)</span> 为回归系数；<span class="arithmatex">\(x_0,x_1,\dotsb,x_m\)</span> 为变量；<span class="arithmatex">\(\varepsilon\)</span> 是误差随机项。</p>
+<p>对于 <span class="arithmatex">\(n\)</span> 组观测，满足 <span class="arithmatex">\(y_i=\beta_{0} + \beta_1 x_{i1} + \cdots + \beta_mx_{im} + \varepsilon_i\)</span> ,记</p>
+<div class="arithmatex">\[\boldsymbol{Y}=\left[\begin{array}{l}
+y_{1} \\
+y_{2} \\
+\vdots \\
+y_{n}
+\end{array}\right] \quad, \quad \boldsymbol{X}=\left[\begin{array}{cccc}
+1 &amp; x_{11} &amp; \ldots &amp; x_{1m} \\
+1 &amp; x_{21} &amp; \ldots &amp; x_{2m} \\
+\vdots &amp; \vdots &amp; &amp; \vdots \\
+1 &amp; x_{n1} &amp; \ldots &amp; x_{nm}
+\end{array}\right] \quad, \quad \boldsymbol{\beta}=\left[\begin{array}{c}
+\beta_{0} \\
+\beta_{1} \\
+\vdots \\
+\beta_{k}
+\end{array}\right] \quad, \quad \boldsymbol{\varepsilon}=\left[\begin{array}{c}
+\varepsilon_{1} \\
+\varepsilon_{2} \\
+\vdots \\
+\varepsilon_{n}
+\end{array}\right]\]</div>
+<p>这时模型可以写作:</p>
+<div class="arithmatex">\[
+\boldsymbol{Y}=\boldsymbol{X} \boldsymbol{\beta}+\boldsymbol{\varepsilon}
+\]</div>
+<h3 id="_4">参数估计<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>模型中的参数 <span class="arithmatex">\(\beta_0,\beta_1,\dotsb,\beta_m\)</span> 用最小二乘法估计，得到估计值 <span class="arithmatex">\(\hat{\beta}_{i}\)</span> 。</p>
+<p>需要最小化的函数是：</p>
+<div class="arithmatex">\[
+SSE = Q\left(\beta_{0}, \beta_{1}, \ldots, \beta_{p}\right)=\sum_{i=1}^{n}(y_i-\hat{y_i})^2=\sum_{i=1}^{n}\left(y_{i}-\beta_{0}-\beta_{1} x_{i 1}-\ldots-\beta_{p} x_{i p}\right)^{2}
+\]</div>
+<p>为此，令
+$$
+\frac{\partial Q}{\partial \beta _j} =0,(j=0,1,\dots ,m)
+$$</p>
+<p>解得(详细过程参考<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>或<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>)：
+$$
+\boldsymbol{\hat{\beta}}=\left(\boldsymbol{X}^{T} \boldsymbol{X}\right)^{-1} \boldsymbol{X}^{T} \boldsymbol{Y}
+$$</p>
+<p>记 <span class="arithmatex">\(\boldsymbol{\hat{Y}}=\boldsymbol{X}\boldsymbol{\hat{\beta}}\)</span> ，<span class="arithmatex">\(\boldsymbol{e}=\boldsymbol{Y}-\boldsymbol{\hat{Y}}\)</span> 为残差，而 <span class="arithmatex">\(SSE=\sum e_i^2\)</span> 为残差平方和<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。</p>
+<h3 id="_5">显著性检验<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h4 id="_6">方程显著性检验<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>检验这个回归方程本身是否有效。我们给出下列原假设和备择假设：
+$$ H_0: \beta_j=0 , j=1,2,\dots,m\
+H_1: \beta_1,\dots,\beta_m 不全为 0$$
+当假设 <span class="arithmatex">\(H_0\)</span> 成立时，满足：
+$$
+F=\frac{SSR/m}{SSE/(n-m-1)} \sim F(m,n-m-1)
+$$</p>
+<p>式中,  <span class="arithmatex">\(SSR=\sum_{i=1}^{n}\left(\hat{y}_{i}-\bar{y}\right)^{2}\)</span>  是回归平方和；  <span class="arithmatex">\(SSE=\sum_{i=1}^{n}\left(y_{i}-\hat{y}_{i}\right)^{2}\)</span>  是残差平方和。再给定的
+显著性水平 <span class="arithmatex">\(\alpha\)</span> 下，对于上 <span class="arithmatex">\(\alpha\)</span> 分位数 <span class="arithmatex">\(F_{\alpha}(k, n-k-1)\)</span> ， 检验的拒绝域为  <span class="arithmatex">\(F&gt;F_{\alpha}(k, n-k-1)\)</span> 接受域可以为：<span class="arithmatex">\(F_{1-\alpha/2}(k, n-k-1)&lt;F&lt;F_{\alpha/2}(k, n-k-1)\)</span>。</p>
+<blockquote>
+<p>上式，书上是这样写的，但是好像写错了。
+(22.2.8)</p>
+</blockquote>
+<p>注：<span class="arithmatex">\(H_0\)</span> 仅说明 <span class="arithmatex">\(y\)</span> 与 <span class="arithmatex">\(x_1,x_2,\dots,x_m\)</span> 的线性关系不明显，可能存在非线性关系(取对数)。</p>
+<p>对于预测型回归需要检查拟合优度(<span class="arithmatex">\(R^2\)</span>)；解释型回归更多的关注模型整体显著性以及自变量的统计显著性和经济意义显著性即可。</p>
+<p>$$
+R<sup>2=\frac{SSR}{SST}=\frac{\sum_{i=1}</sup>{n}(\hat{y_i}-\bar{y})<sup>2}{\sum_{i=1}</sup>{n}(y_i-\bar{y})^2}
+$$
+<span class="arithmatex">\(R\)</span> 称为复相关系数，<span class="arithmatex">\(R^2\)</span> 越大，<span class="arithmatex">\(y\)</span> 与 <span class="arithmatex">\(x_1,x_2,\dots,x_m\)</span> 相关关系越密切，通常 <span class="arithmatex">\(R\)</span> 大于 <span class="arithmatex">\(0.8\)</span> 才认为相关性成立<sup id="fnref3:1"><a class="footnote-ref" href="#fn:1">1</a></sup>,这是一个看拟合的好不好的一个综合指标。</p>
+<h4 id="_7">系数显著性检验<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>经过上述验证得到 <span class="arithmatex">\(H_0\)</span> ，被拒绝，<span class="arithmatex">\(\beta_j\)</span> 不全为 <span class="arithmatex">\(0\)</span> ,但不排除存在 <span class="arithmatex">\(\beta_j\)</span> 为 <span class="arithmatex">\(0\)</span> 。所以还要进行以下 <span class="arithmatex">\(m+1\)</span> 个检验。
+$$
+H_0^{(j)}：\beta_{j}=0 , j=0,1,\cdots,m
+$$</p>
+<p>根据无偏性和<span class="arithmatex">\(cov(\hat \beta)=\sigma^2(X^{T}X)^{-1}\)</span> <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>，得到 <span class="arithmatex">\(\hat \beta_j \sim N(\beta_j, c_{jj}\sigma^2)\)</span> ,其中 <span class="arithmatex">\(c_{jj}\)</span> 表示 <span class="arithmatex">\((X^{T}X)^{-1}\)</span> 的对角线元素 <span class="arithmatex">\((j,j)\)</span> 。考虑构造**t检验** <span class="arithmatex">\(\frac{X}{\sqrt{Y/N}}\)</span>。</p>
+<div class="arithmatex">\[
+t=\frac{\hat \beta_j}{\sqrt{c_{jj}}\sigma}=\frac{\hat{\beta_j}/\sqrt{c_{jj}}}{\sqrt{SSE/(n-m-1)}} \sim t(n-m-1)
+\]</div>
+<p>在 <span class="arithmatex">\(1-\alpha\)</span> 的置信水平下， <span class="arithmatex">\(\beta_j\)</span> 的置信区间为<sup id="fnref4:1"><a class="footnote-ref" href="#fn:1">1</a></sup>：
+$$
+[\hat{\beta_j}-t_{\frac{\alpha}{2}}(n-m-1)s\sqrt{c_{jj}},\hat{\beta_j}+t_{\frac{\alpha}{2}}(n-m-1)s\sqrt{c_{jj}}]
+$$
+其中 <span class="arithmatex">\(s=\sqrt{\frac{SSE}{n-m-1}}\)</span> ；或者当 <span class="arithmatex">\(|t_j|&lt;t_{\frac{\alpha}{2}}(n-m-1)\)</span> 判断接受 <span class="arithmatex">\(H_0^{(j)}\)</span> ,否则拒绝。</p>
+<h3 id="_8">检验异方差<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>残差的方差齐(Equal variance),即LINE原则。即残差的大小不随预测值水平的变化而变化，通常在分析残差的时候，可以通过绘制普通残差或者标准化残差与预测值的散点图进行判断。残差的分布随着变量的取值的增大而呈现扩散趋势产生异方差<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>。</p>
+<p>异方差是指各个扰动项的方差不相同，那么方差较大的扰动项破坏模型稳定性的程度就较大<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>；因变量的变异程度会随着自身数值或者其他变量的变化而变化，从而不满足残差方差齐性的条件<sup id="fnref2:5"><a class="footnote-ref" href="#fn:5">5</a></sup>。</p>
+<p><img alt="" src="https://s2.loli.net/2022/02/09/ryLoOf9UKcPJqWg.png" /></p>
+<h4 id="_9"><a href="https://blog.csdn.net/weixin_46649908/article/details/117927359">多种检验方法</a><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<h4 id="_10">解决方法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<ol>
+<li>构建加权最小二乘法模型</li>
+</ol>
+<p>判断导致残差不满足方差齐性的指标，对其加权。</p>
+<ol>
+<li>
+<p>使用“OLS + 稳健标准误”</p>
+</li>
+<li>
+<p>广义最小二乘法 GLS</p>
+</li>
+</ol>
+<h3 id="_11">检验多重共线性<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>方差膨胀因子(Variance Inflation Factor)VIF</p>
+<p>假设 <span class="arithmatex">\(m\)</span> 个自变量中，第 <span class="arithmatex">\(j\)</span> 个自变量的 <span class="arithmatex">\(VIF=\frac{1}{1-R_{1-m/j}^2}\)</span></p>
+<p><span class="arithmatex">\(R_{1-m/j}^2\)</span> 是将第 <span class="arithmatex">\(j\)</span> 个自变量作为因变量，对余下 <span class="arithmatex">\(m-1\)</span> 个自变量回归得到的拟合优度，<span class="arithmatex">\(VIF_j\)</span> 越大（也就是 <span class="arithmatex">\(R_{1-m/j}^2\)</span> 越大），说明当前变量和其他变量关联度越大<sup id="fnref2:4"><a class="footnote-ref" href="#fn:4">4</a></sup>。记模型：</p>
+<div class="arithmatex">\[
+VIF=max(VIF_1,VIF_2,\dots,VIF_m)
+\]</div>
+<p>若，<span class="arithmatex">\(VIF &gt; 10\)</span>, 则表示回归模型存在严重多重共线性。</p>
+<p>注：多重共线性不影响回归方程的解释变量能力与预测能力，只会影响被多重共线性影响的变量的显著性（系数）。解决办法是增大样本或剔除共线性变量。</p>
+<p><img alt="用散点图观察相关性" src="https://s2.loli.net/2022/02/08/tOTeL4yjENYF6ld.png" /></p>
+<p>有时候逐步回归（Lasso回归）是个快捷不动脑子的做法。此外，**主成分回归**也可用来解决多重共线性的问题。</p>
+<h3 id="spss">SPSS实现多元线性回归<a class="headerlink" href="#spss" title="Permanent link">&para;</a></h3>
+<p><a href="https://zhuanlan.zhihu.com/p/143049922">SPSS实现多元线性回归</a></p>
+<h2 id="lasso">岭回归和Lasso回归<a class="headerlink" href="#lasso" title="Permanent link">&para;</a></h2>
+<p>岭回归 (Ridge regression)\
+Lasso(Least absolute shrinkage and selection operator)回归\
+是一种压缩估计。它通过构造一个惩罚函数得到一个较为精炼的模型，使得它压缩一些回归系数。以损失部分信息、降低精度为代价获得回归系数更为符合实际、更可靠的回归方法，对病态数据的拟合要强于最小二乘法。</p>
+<div class="arithmatex">\[\left\{
+\begin{matrix}
+多元线性：\boldsymbol{\hat{\beta }} =argmin_{\hat{\beta }} \sum_{i=1}^{n}(y_i-\boldsymbol{x_i}^T \boldsymbol{\hat{\beta} } )^2 ，其中\boldsymbol{\hat{\beta}}=[\hat{\beta}_1,\hat{\beta}_2,\dots ]\\
+岭回归：\boldsymbol{\hat{\beta } }=argmin_{\hat{\beta }} [ \sum_{i=1}^{n}(y_i-\boldsymbol{x_i}^T \boldsymbol{\hat{\beta}}  )^2 + \lambda \sum_{i=1}^n \hat{\beta_i}^2]，\lambda&gt;0\\
+Lasso回归：\boldsymbol{\hat{\beta }} =argmin_{\hat{\beta }} [ \sum_{i=1}^{n}(y_i-\boldsymbol{x_i}^T \boldsymbol{\hat{\beta} } )^2 + \lambda \sum_{i=1}^n |\hat{\beta_i}|]
+\end{matrix}
+\right.\]</div>
+<p>其中新增的最后一项<span class="arithmatex">\(\sum_{i=1}^n \hat{\beta_i}^2\)</span>称为惩罚函数。</p>
+<p>对于岭回归有解为：</p>
+<div class="arithmatex">\[
+\boldsymbol{\widehat{\beta}}=\left(\boldsymbol{X}^{T} \boldsymbol{X}+\lambda \boldsymbol{I}\right)^{-1} \boldsymbol{X}^{T} \boldsymbol{y}
+\]</div>
+<p>易知：<span class="arithmatex">\(\lambda\)</span> 趋近 <span class="arithmatex">\(0\)</span> 时，系数和多元线性回归相同；<span class="arithmatex">\(\lambda\)</span> 趋近无穷时，系数趋近 <span class="arithmatex">\(0\)</span> 。</p>
+<p>Lasso回归相比岭回归，能将不重要的回归系数压缩至 <span class="arithmatex">\(0\)</span> ，可以进行降纬，但是没有显式解。</p>
+<p><img alt="" src="https://s2.loli.net/2022/02/09/XOaLo1vwhMDCgbn.jpg" /></p>
+<h2 id="_12">多元二项式回归<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>Matlab 的统计工具箱提供了多元二项式回归命令 <code>rstool</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">rstool</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">model</span><span class="p">,</span><span class="nb">alpha</span><span class="p">)</span>
+</code></pre></div>
+<p>其中 <code>alpha</code> 为显著性水平（默认为 <span class="arithmatex">\(0.05\)</span>）, <code>model</code> 有以下四个模型（默认为线性模型）</p>
+<ol>
+<li><span class="arithmatex">\(\operatorname{linear}(  线性  ): y=\beta_{0}+\beta_{1} x_{1}+\cdots+\beta_{m} x_{m}\)</span></li>
+<li><span class="arithmatex">\(purequadratic (纯二次)  : y=\beta_{0}+\beta_{1} x_{1}+\cdots+\beta_{m} x_{m}+\sum\limits_{\tiny j=1}^{\tiny m} \beta_{j j} x_{j}^{2}\)</span> </li>
+<li><span class="arithmatex">\(interaction(交叉)  : y=\beta_{0}+\beta_{1} x_{1}+\cdots+\beta_{m} x_{m}+\sum\limits_{\tiny1 \leqslant j&lt;k \leqslant m} \beta_{j k} x_{j} x_{k}\)</span> </li>
+<li><span class="arithmatex">\(quadratic(完全二次)  : y=\beta_{0}+\beta_{1} x_{1}+\cdots+\beta_{m} x_{m}+\sum\limits_{\tiny 1 \leqslant j \leqslant k \leqslant m} \beta_{j k} x_{j} x_{k}\)</span></li>
+</ol>
+<h2 id="_13">非线性回归<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>这里的“线性”是相对于模型参数 <span class="arithmatex">\(\beta_0,\beta_1,\dotsb,\beta_m\)</span> 而言的。</p>
+<p>对于此类问题，应先给出 <span class="arithmatex">\(y\)</span> 与 <span class="arithmatex">\(x_1,x_2,\dots,x_n\)</span> 关于  <span class="arithmatex">\(\beta_0,\beta_1,\dotsb,\beta_m\)</span> 的非线性表达式。</p>
+<p>再使用 Matlab 的 <code>nlpredci</code> 计算回归系数。</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>司守奎 孙兆亮. 数学建模算法与运用[M]. 第2版. 第150页.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://blog.csdn.net/heirenmin/article/details/94443404">https://blog.csdn.net/heirenmin/article/details/94443404</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://zhuanlan.zhihu.com/p/48541799">https://zhuanlan.zhihu.com/p/48541799</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>清风数学建模视频&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://zhuanlan.zhihu.com/p/161483493">https://zhuanlan.zhihu.com/p/161483493</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        
+      
+    
+  </body>
+</html>

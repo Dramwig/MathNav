@@ -1,0 +1,1084 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="西南交通大学数学建模协会提供的数学建模导航。">
+      
+      
+        <meta name="author" content="dramwig">
+      
+      
+      
+        <link rel="prev" href="../%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90/">
+      
+      
+        <link rel="next" href="../%E6%8F%92%E5%80%BC%E7%AE%97%E6%B3%95/">
+      
+      <link rel="icon" href="https://pic.imgdb.cn/item/64c26a631ddac507cc8cd206.webp">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+    
+    
+      
+        <title>层次分析法 - 交大数学建模导航 - MathNav</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../resources/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#analytic-hierarchy-processahp" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="交大数学建模导航 - MathNav" class="md-header__button md-logo" aria-label="交大数学建模导航 - MathNav" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            交大数学建模导航 - MathNav
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              层次分析法
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="交大数学建模导航 - MathNav" class="md-nav__button md-logo" aria-label="交大数学建模导航 - MathNav" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    交大数学建模导航 - MathNav
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.en/" class="md-nav__link">
+        Home-en
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../update/" class="md-nav__link">
+        Update
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/" class="md-nav__link">
+        书籍
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          模型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%81%B0%E8%89%B2%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90/" class="md-nav__link">
+        灰色关联分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="md-nav__link">
+        回归分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/" class="md-nav__link">
+        聚类分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7/" class="md-nav__link">
+        模糊综合评价
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/" class="md-nav__link">
+        因子分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/" class="md-nav__link">
+        优劣解距离法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        主成分分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          层次分析法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        层次分析法
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本步骤
+  </a>
+  
+    <nav class="md-nav" aria-label="基本步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    建立层次模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    构造判断矩阵
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    一致性检验
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    求得权重
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    填表得结果
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    一点补充
+  </a>
+  
+    <nav class="md-nav" aria-label="一点补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    详细做法补充
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    特征向量含义思考
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    一些问题
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8F%92%E5%80%BC%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        插值算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B8%E5%9E%8B%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90/" class="md-nav__link">
+        典型相关分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        分类模型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          算法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/" class="md-nav__link">
+        拟牛顿法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E4%B8%8E%E9%AB%98%E6%96%AF%E7%89%9B%E9%A1%BF%E6%B3%95/" class="md-nav__link">
+        牛顿迭代与高斯牛顿法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E7%99%BB%E5%B1%B1%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        登山问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E4%BA%8C%E7%BB%B4%E5%AF%BC%E7%83%AD/" class="md-nav__link">
+        二维导热
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        旅行商问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E5%B1%B1%E5%8C%BA%E5%9C%B0%E8%B2%8C/" class="md-nav__link">
+        山区地貌
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本步骤
+  </a>
+  
+    <nav class="md-nav" aria-label="基本步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    建立层次模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    构造判断矩阵
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    一致性检验
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    求得权重
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    填表得结果
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    一点补充
+  </a>
+  
+    <nav class="md-nav" aria-label="一点补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    详细做法补充
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    特征向量含义思考
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    一些问题
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="analytic-hierarchy-processahp">层次分析法(Analytic Hierarchy Process,AHP)<a class="headerlink" href="#analytic-hierarchy-processahp" title="Permanent link">&para;</a></h1>
+<p>这是一种定性和定量相结合的、系统的、层次化的分析方法。这种方法是在对复杂决策问题的本质上，利用较少的定量信息使**决策的思维过程数学化**，从而为多目标、多准则或无结构特性的决策问题提供简便的决策方法。<strong>是对难以定量的复杂系统进行决策的模型</strong>。</p>
+<p>层次分析法的根本是**打分法**：<u>确定指标</u>，<u>不同方案指标打分</u>，<u>为指标确定权重</u>。用于处理数据未知的评价。</p>
+<p>层次分析法将问题分解为组成因素，并按照因素间关联、影响以及隶属关系将因素按不同的层次聚集组合，形成一个多层次的分析结构模型。从而最终使问题归结为最低层(供决策的方案、措施等)相对于最高层(总目标)的相对重要权值的确定或相对优劣次序的排定。</p>
+<h2 id="_1">基本步骤<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">建立层次模型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>思考以下问题：</p>
+<ol>
+<li>我的的评价目标是什么？</li>
+<li>达到目标有哪些方案？</li>
+<li>★对方案的评价准则或指标是什么？（最好参考引用文献）</li>
+</ol>
+<p>将<u>决策的目标</u>、<u>决策准则</u>(考虑的因素)和<u>决策对象</u>绘制为层次结构图。</p>
+<ol>
+<li>最高层(目标层)：决策的目的、要解决的问题；</li>
+<li>中间层(准则层或指标层)：考虑的因素、决策的准则；</li>
+<li>最低层(方案层)：决策时的备选方案；</li>
+</ol>
+<p>或仅绘制评价体系(树状图或表格)如下 (要包含**多级指标**)：</p>
+<p><img alt="评价模型" src="https://s2.loli.net/2022/01/18/oVnIQh5DpORcuqX.png" /></p>
+<h3 id="_3">构造判断矩阵<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>(成对比较矩阵)</p>
+<p>在确定权重时，只给出定性的结果(就是我认为景色占80%，费用10%等等)，常常不被别人接受，因此采用一致矩阵法，即：</p>
+<ul>
+<li>不把所有因素放在一起比较，而是两两比较</li>
+<li>对此时采用相对尺度，尽可能减少诸因素导致的相互比较的困难，提高准确性</li>
+</ul>
+<p>成对比较矩阵是表示本层所有因素针对上一层某一个因素(准侧或目标)的相对重要性的比较。成对比较矩阵的元素 <span class="arithmatex">\(a_{ij}\)</span> 表示的是第 <span class="arithmatex">\(i\)</span> 个因素相对于第 <span class="arithmatex">\(j\)</span> 个因素的比较结果，这个值使用的是Santy的1-9标度方法给出。</p>
+<p>定义且满足</p>
+<div class="arithmatex">\[
+a_{ij}=i相对j的重要度=\frac{i的重要程度}{j的重要程度}=a_{ik}a_{kj}
+\]</div>
+<p><img alt="" src="https://s2.loli.net/2022/01/18/f5gYz8SqUmTbahn.png" /></p>
+<h3 id="_4">一致性检验<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(\left[\begin{array}{cccc}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1 n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2 n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n 1} &amp; a_{n 2} &amp; \cdots &amp; a_{n n}
+\end{array}\right]\)</span>为一致矩阵的充要条件<span class="arithmatex">\(\left\{\begin{array}{l}
+a_{i j}&gt;0 \\
+a_{11}=a_{22}=\cdots=a_{n n}=1 \\
+{\left[a_{i 1},..., a_{i n}\right]=k_{i}\left[a_{11},..., a_{1 n}\right]}
+\end{array}\right.\)</span></p>
+<p>对于</p>
+<p>一致阵：则我们自然会取对应于最大特征根 <span class="arithmatex">\(n\)</span> 的归一化特征向量 <span class="arithmatex">\(\{w_1,w_2,\cdots,w_n\}\)</span> ，且 <span class="arithmatex">\(\sum_{i=1}^{n}{w_i=1}\)</span> ， <span class="arithmatex">\(w_i\)</span> 表示下层第 <span class="arithmatex">\(i\)</span> 个因素对上层某个因素影响程度的权值。</p>
+<p>非一致阵：用其最大特征根对应的归一化特征向量作为权向量 <span class="arithmatex">\(W=\{w_1,w_2,\cdots,w_n\}\)</span> ，则 <span class="arithmatex">\(AW=\lambda W\)</span> ，这样确定权向量的方法称为特征根法；</p>
+<p>定理：</p>
+<ol>
+<li><span class="arithmatex">\(n\)</span> 阶一致阵的唯一非零特征根为 <span class="arithmatex">\(n\)</span></li>
+<li><span class="arithmatex">\(n\)</span>  阶互反阵  <span class="arithmatex">\(A\left(a_{i j}&gt;0, a_{i j}=\frac{1}{a_{j i}}, a_{i i}=1\right)\)</span>  最大特征根  <span class="arithmatex">\(\lambda \geq n\)</span> ，当且仅当  <span class="arithmatex">\(\lambda=n\)</span>  时，  <span class="arithmatex">\(A\)</span>  为一致矩阵。</li>
+</ol>
+<p><span class="arithmatex">\(\lambda\)</span> 连续的依赖于 <span class="arithmatex">\(a_{ij}\)</span> ，则 <span class="arithmatex">\(\lambda\)</span> 比 <span class="arithmatex">\(n\)</span> 大的越多， <span class="arithmatex">\(A\)</span> 的不一致性越严重。用最大特征值对应的特征向量作为影响程度的权向量，其不一致程度越大，引起的判断误差越大。</p>
+<p><strong>第一步：计算一致性指标CI</strong></p>
+<div class="arithmatex">\[
+CI=\frac{\lambda -n}{n-1}
+\]</div>
+<ol>
+<li><span class="arithmatex">\(CI=0\)</span> ,有完全的一致性；</li>
+<li><span class="arithmatex">\(CI\)</span> 接近 <span class="arithmatex">\(0\)</span> ，有满意的一致性</li>
+<li><span class="arithmatex">\(CI\)</span> 越大，不一致越严重；</li>
+</ol>
+<p><strong>第二步：查找对应的平均随机一致性指标RI</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">n</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center">8</th>
+<th align="center">9</th>
+<th align="center">10</th>
+<th align="center">11</th>
+<th align="center">12</th>
+<th align="center">13</th>
+<th align="center">14</th>
+<th align="center">15</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">RI</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0.52</td>
+<td align="center">0.89</td>
+<td align="center">1.12</td>
+<td align="center">1.26</td>
+<td align="center">1.36</td>
+<td align="center">1.41</td>
+<td align="center">1.46</td>
+<td align="center">1.49</td>
+<td align="center">1.52</td>
+<td align="center">1.54</td>
+<td align="center">1.56</td>
+<td align="center">1.58</td>
+<td align="center">1.59</td>
+</tr>
+</tbody>
+</table>
+<p><span class="arithmatex">\(RI\)</span> 为统计结果，详细计算方法参考<a href="https://zhuanlan.zhihu.com/p/38207837">这里</a></p>
+<p><strong>第三步：计算一致性比例CR</strong></p>
+<div class="arithmatex">\[
+CR=\frac{CI}{RI}
+\]</div>
+<p>如果 <span class="arithmatex">\(CR &lt; 0.1\)</span>, 则可认为判断矩阵的一致性可以接受；否则需要对判断矩阵进行修正。</p>
+<h3 id="_5">求得权重<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li>算术平均法求权重</li>
+</ol>
+<div class="arithmatex">\[
+\omega_{i}=\frac{1}{n} \sum_{j=1}^{n} \frac{a_{i j}}{\sum_{k=1}^{n} a_{k j}}
+\]</div>
+<ol>
+<li>几何平均法求权重</li>
+</ol>
+<div class="arithmatex">\[
+\omega_{i}=\frac{\left(\prod_{j=1}^{n} a_{i j}\right)^{\frac{1}{n}}}{\sum_{k=1}^{n}\left(\prod_{j=1}^{n} a_{k j}\right)^{\frac{1}{n}}}
+\]</div>
+<ol>
+<li>特征值法求权</li>
+</ol>
+<p>特别的：若特征值为n，对应特征向量为<span class="arithmatex">\(k\left[\frac{1}{a_{11}}, \frac{1}{a_{12}}, \cdots, \frac{1}{a_{1 n}}\right]^{T}\)</span>，且特征向量刚好为矩阵第一列。</p>
+<p>假如我们的判断矩阵一致性可以接受，那么我们可以仿照一致矩阵权重的求法。</p>
+<p>(1) 求出矩阵A的最大特征值以及其对应的特征向量\
+(2) 对求出的特征向量进行归一化即可得到我们的权重( <span class="arithmatex">\(\sum_{i=1}^{n}{w_i=1}\)</span> )</p>
+<h3 id="_6">填表得结果<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><img alt="表格" src="https://s2.loli.net/2022/01/18/BgNZY8JkrPjMKtq.png" /></p>
+<p>然后相应的加权计算得分即可得到结果。</p>
+<h2 id="_7">一点补充<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">详细做法补充<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ol>
+<li>对于评价指标：</li>
+<li>单层评价指标：构造所有指标的两两判断矩阵，得到权值</li>
+<li>多层评价指标：<ol>
+<li>构造一级指标的两两判断矩阵，得到权值</li>
+<li>构造每个一级指标下的二级指标的两两判断矩阵（每个一级指标一个矩阵），得到权值</li>
+<li>构造每个二级指标下……\
+  ……</li>
+</ol>
+</li>
+<li>对于方案：</li>
+<li>对于每个最低级指标构造所有方案的两两判断矩阵，得到权值</li>
+</ol>
+<p>示例：</p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+   一级指标1\left\{\begin{array}{l}
+      二级指标1 :a_{11},a_{12},a_{13}\\
+      二级指标2 :a_{21},a_{22},a_{23}\\
+   \end{array}\right.\\ \\
+   一级指标2\left\{\begin{array}{l}
+      二级指标3 :a_{31},a_{32},a_{33}\\
+      二级指标4 :a_{41},a_{42},a_{43}\\
+      二级指标5 :a_{51},a_{52},a_{53}\\
+   \end{array}\right.\\ \\
+   一级指标3 : a_{61},a_{62},a_{63}
+\end{array}\right.\\
+\]</div>
+<h3 id="_9">特征向量含义思考<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>对于矩阵 <span class="arithmatex">\(A=\left[\begin{array}{cccc}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1 n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2 n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n 1} &amp; a_{n 2} &amp; \cdots &amp; a_{n n}
+\end{array}\right]\)</span> ， <span class="arithmatex">\(W=\left[\begin{array}{c}
+w_{1}\\
+w_{2}\\
+\vdots\\
+w_{n}
+\end{array}\right]\)</span> ，满足 <span class="arithmatex">\(AW=\lambda A\)</span> 。</p>
+<p>矩阵的本质是变换，把 <span class="arithmatex">\(A\)</span> 看作对 <span class="arithmatex">\(m\)</span> 纬空间单位球体进行 <span class="arithmatex">\(A\)</span> 变换,取 <span class="arithmatex">\(\lambda\)</span> 最大时的特征向量 <span class="arithmatex">\(W\)</span> ,即表示为变换后的球体上与变换前方向相同的点中距离原点 <span class="arithmatex">\(O\)</span> 最远的点（距离原点距离为 <span class="arithmatex">\(\lambda\)</span> ）所表示的方向向量 。记 <span class="arithmatex">\(W\)</span> 为可以代表整个变换 <span class="arithmatex">\(A\)</span> 的线性变换。</p>
+<blockquote>
+<p>特别的对于对称矩阵 <span class="arithmatex">\(A\)</span> ，变换 <span class="arithmatex">\(A\)</span> 一定是将球变为椭球，这也是不同特征值对应特征向量一定正交的原因，相同特征值 <span class="arithmatex">\(\lambda\)</span> 若有多个特征向量 <span class="arithmatex">\(e_1,e_2,...\)</span>，特征向量的张成空间都是该特征值 <span class="arithmatex">\(\lambda\)</span> 的特征向量。<span class="arithmatex">\(\lambda\)</span> 的特征向量。\
+但是，对于非特殊矩阵，几何意义不明确，另外对于正互反矩阵、一致性矩阵的变换性质，笔者并不清楚，所以也仅仅能近似的类比理解到这里了。
+(22.1.18)</p>
+</blockquote>
+<h2 id="_10">一些问题<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ol>
+<li>评价的决策层不能太多，太多的话n会很大,判断矩阵和一致矩阵差异可能会很大。</li>
+<li>平均随机一致性指标RI的表格中n最多是15。</li>
+</ol>
+<p>所以**当n过大可以分层归纳为多级指标**再构造多个判断矩阵。</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>bilibili:数学建模学习交流&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://zhuanlan.zhihu.com/p/38207837">https://zhuanlan.zhihu.com/p/38207837</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1074 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="西南交通大学数学建模协会提供的数学建模导航。">
+      
+      
+        <meta name="author" content="dramwig">
+      
+      
+      
+        <link rel="prev" href="../%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/">
+      
+      
+        <link rel="next" href="../%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90/">
+      
+      <link rel="icon" href="https://pic.imgdb.cn/item/64c26a631ddac507cc8cd206.webp">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+    
+    
+      
+        <title>优劣解距离法 - 交大数学建模导航 - MathNav</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../resources/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#topsis" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="交大数学建模导航 - MathNav" class="md-header__button md-logo" aria-label="交大数学建模导航 - MathNav" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            交大数学建模导航 - MathNav
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              优劣解距离法
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="交大数学建模导航 - MathNav" class="md-nav__button md-logo" aria-label="交大数学建模导航 - MathNav" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    交大数学建模导航 - MathNav
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.en/" class="md-nav__link">
+        Home-en
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../update/" class="md-nav__link">
+        Update
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/" class="md-nav__link">
+        书籍
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          模型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%81%B0%E8%89%B2%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90/" class="md-nav__link">
+        灰色关联分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="md-nav__link">
+        回归分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/" class="md-nav__link">
+        聚类分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7/" class="md-nav__link">
+        模糊综合评价
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/" class="md-nav__link">
+        因子分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          优劣解距离法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        优劣解距离法
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本思想
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    模型步骤
+  </a>
+  
+    <nav class="md-nav" aria-label="模型步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    数据处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    指标正向化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    标准化处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    计算得分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    *结果处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    更多理解
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        主成分分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="md-nav__link">
+        层次分析法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8F%92%E5%80%BC%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        插值算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B8%E5%9E%8B%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90/" class="md-nav__link">
+        典型相关分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        分类模型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          算法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/" class="md-nav__link">
+        拟牛顿法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E4%B8%8E%E9%AB%98%E6%96%AF%E7%89%9B%E9%A1%BF%E6%B3%95/" class="md-nav__link">
+        牛顿迭代与高斯牛顿法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E7%99%BB%E5%B1%B1%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        登山问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E4%BA%8C%E7%BB%B4%E5%AF%BC%E7%83%AD/" class="md-nav__link">
+        二维导热
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        旅行商问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E5%B1%B1%E5%8C%BA%E5%9C%B0%E8%B2%8C/" class="md-nav__link">
+        山区地貌
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本思想
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    模型步骤
+  </a>
+  
+    <nav class="md-nav" aria-label="模型步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    数据处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    指标正向化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    标准化处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    计算得分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    *结果处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    更多理解
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="topsis">优劣解距离法(TOPSIS)<a class="headerlink" href="#topsis" title="Permanent link">&para;</a></h1>
+<p>TOPSIS法(Technique for Order Preference by Similarity to Ideal Solution)\
+可翻译为逼近理想解排序法，国内常简称为优劣解距离法。是根据有限个评价对象与理想化目标的接近程度进行排序的方法，是在现有的对象中进行相对优劣的评价。</p>
+<p>TOPSIS 法是一种常用的综合评价方法，其能充分利用原始数据的信息，\
+其结果能精确地反映各评价方案之间的差距。</p>
+<p><img alt="不同压缩因子压缩熵权法的TOPSIS" src="https://s2.loli.net/2022/02/28/jRuf16qiWHEZbGm.png" /></p>
+<h2 id="_1">基本思想<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>构造计算评分公式：<span class="arithmatex">\(\frac{x-min}{max-min}\)</span></p>
+<p>该公式能够良好的对一个指标下的数据进行评分，反应了单个数据在数据范围区间所处的位置。</p>
+<p><strong>拓展</strong>：将其中 <span class="arithmatex">\(x-min\)</span> 理解为“x与最小点的距离”；<span class="arithmatex">\(max-x\)</span> 理解为“x于最大值点的距离”即可得到多指标评价公式</p>
+<h2 id="_2">模型步骤<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">数据处理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>对所有的指标构成进行说明</p>
+<p>对于 <span class="arithmatex">\(m\)</span> 个评价指标横向排列，<span class="arithmatex">\(n\)</span> 个评价对象纵向排列的矩阵，记为
+<span class="arithmatex">\(<span class="arithmatex">\(X_{nm}=\left[\begin{array}{cccc}
+x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1 m} \\
+x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2 m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+x_{n 1} &amp; x_{n 2} &amp; \cdots &amp; x_{n m}
+\end{array}\right]\)</span>\)</span></p>
+<h3 id="_4">指标正向化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><strong>描述</strong>：统一指标类型，将为极小型、中间型、区间型等指标转换为极大值指标</p>
+<p><strong>注</strong>：最好不要出现负数(无法求熵权)</p>
+<ol>
+<li>极小型指标转换为极大型指标的公式</li>
+</ol>
+<p>$$
+\bar{x}<em>{i}=max-x_i或\bar{x}</em>{i}=\frac{1}{x_i}
+$$
+<strong>其中</strong>：<span class="arithmatex">\(\bar{x}_{i}\)</span>代表转化后的结果</p>
+<ol>
+<li>中间型指标转化为极大型指标</li>
+</ol>
+<p>$$
+\bar{x}<em>{i}=1-\frac{\left|x</em>{i}-x_{\text {best }}\right|}{\max \left(\left|X-x_{\text {best }}\right|\right)}
+$$
+<strong>其中</strong>：<span class="arithmatex">\(x_{best}\)</span> 指代的是最好的值</p>
+<ol>
+<li>区间型指标转化为极大型指标</li>
+</ol>
+<p>$$
+\overline{x_{i}}=\left{\begin{array}{c}
+1-\frac{a-x_{i}}{M}, x_{i}&gt;a \
+1, \quad a&lt;x_{i}<b \\
+1-\frac{x_{i}-b}{M}, x_{i}>b
+\end{array}
+\right.
+$$
+<strong>其中</strong>：<span class="arithmatex">\(M=\max \{a-\min (X), \max (X)-b\}\)</span>即偏离最优区间最远的值; <span class="arithmatex">\(a\)</span>为下界，<span class="arithmatex">\(b\)</span>为上界</p>
+<h3 id="_5">标准化处理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong>描述</strong>：消去不同指标量纲的影响</p>
+<p>记标准化矩阵为<span class="arithmatex">\(Z_{nm}\)</span>,有<span class="arithmatex">\(Z_{i j}=\frac{x_{i j}}{\sqrt{\sum_{i=1}^{n} x_{i j}^{2}}}\)</span></p>
+<h3 id="_6">计算得分<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>定义
+$$
+\begin{aligned}
+Z^{+} &amp;=\left(Z_{1}^{+}, Z_{2}^{+}, \cdots, Z_{m}^{+}\right) \
+&amp;=\left(\max \left{z_{11}, z_{21}, \cdots, z_{n 1}\right}, \max \left{z_{12}, z_{22}, \cdots, z_{n 2}\right}, \cdots, \max \left{z_{1 m}, z_{2 m}, \cdots, z_{n m}\right}\right) \
+Z^{-} &amp;=\left(Z_{1}^{-}, Z_{2}^{-}, \cdots, Z_{m}^{-}\right) \
+&amp;=\left(\min \left{z_{11}, z_{21}, \cdots, z_{n 1}\right}, \min \left{z_{12}, z_{22}, \cdots, z_{n 2}\right}, \cdots, \min \left{z_{1 m}, z_{2 m}, \cdots, z_{n m}\right}\right)
+\end{aligned}
+$$</p>
+<p>定义第  <span class="arithmatex">\(i(i=1,2, \cdots, n)\)</span>  个评价对象与最大值的距离  <span class="arithmatex">\(D_{i}^{+}=\sqrt{\sum_{j=1}^{m}\widetilde{w}_{j}\left(Z_{j}^{+}-z_{i j}\right)^{2}}\)</span>\
+定义第  <span class="arithmatex">\(i(i=1,2, \cdots, n)\)</span>  个评价对象与最小值的距离  <span class="arithmatex">\(D_{i}^{-}=\sqrt{\sum_{j=1}^{m}\widetilde{w}_{j}\left(Z_{j}^{-}-z_{i j}\right)^{2}}\)</span>\
+其中 <span class="arithmatex">\(\widetilde{w}_{j}\)</span> 为加权的指标权重，权重默认为1(因为除法，权重单位量对结果无影响)，可以用层次分析法或熵权法确定权重。</p>
+<p>第  <span class="arithmatex">\(i(i=1,2, \cdots, n)\)</span>  个评价对象未归一化得分<span class="arithmatex">\(S_{i}=\frac{D_{i}^{-}}{D_{i}^{+}+D_{i}^{-}}\)</span></p>
+<h3 id="_7">*结果处理<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>为了比较不同评价模型得到的结果曲线，常常对结果处理。让结果更容易解释，或更好比较。(归一化、标准化)</p>
+<div class="arithmatex">\[
+\widetilde{S_{i}}=\frac{S_{i}}{\sum_{i=1}^{n} S_{i}}
+\]</div>
+<h2 id="_8">更多理解<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>对于形如上文 <span class="arithmatex">\(Z\)</span> 的矩阵，可以将<span class="arithmatex">\(m\)</span>个评价指标看作<span class="arithmatex">\(m\)</span>个坐标轴。对于这<span class="arithmatex">\(m\)</span>个坐标轴的张成空间 <span class="arithmatex">\(V\)</span> ，每一条横轴（即待评价单元）就可表示为该空间上的一点 <span class="arithmatex">\(P(x_{i1},x_{i2},...,x_{im})\)</span>。</p>
+<p><span class="arithmatex">\(Z^{+}(Z_{1}^{+}, Z_{2}^{+}, \cdots, Z_{m}^{+})\)</span> , <span class="arithmatex">\(Z^{-}(Z_{1}^{-}, Z_{2}^{-}, \cdots, Z_{m}^{-})\)</span> 为包含所有评价点集的最小“<span class="arithmatex">\(m\)</span>维体”的主对称轴上的两端点。</p>
+<p>对于 <span class="arithmatex">\(S_{i}=\frac{D_{i}^{-}}{D_{i}^{+}+D_{i}^{-}}=\frac{1}{1+k}\)</span> , <span class="arithmatex">\(k\)</span> 的含义为点到 <span class="arithmatex">\(Z^+\)</span> 与 <span class="arithmatex">\(Z^-\)</span> 的距离比值。形如 <span class="arithmatex">\(k=\frac{D^+}{D^-}=\frac{dis(X,Z^+)}{dis(X,Z^-)}\)</span> 的式子表示的曲线为<span class="arithmatex">\(m\)</span>纬的球体。</p>
+<p>以下为2个评价指标时，以 <span class="arithmatex">\(Z^+(3,2)\)</span> , <span class="arithmatex">\(Z^-(0,0)\)</span> 为端点，<span class="arithmatex">\(k=\{2^{-4},2^{-3},...,2^4\}\)</span> 时的函数图像。同一曲线上的点表示的评价结果相同。</p>
+<p><img alt="二维评价张成空间" src="https://s2.loli.net/2022/01/18/pqFAbi5Ek4SonVa.png" /></p>
+<p>如图，可以看出TOPSIS评价对空间进行了扭曲（把<span class="arithmatex">\(m\)</span>空间非线性压缩为一维评价系）。保留了样本间间距，但损失了原始统计信息。</p>
+<blockquote>
+<p>通过下文解释，所以TOPSIS是高纬的归一化(Normalization)?但下文中说，归一化也是线性放缩。
+(22.1.18)</p>
+</blockquote>
+<h1 id="_9">熵权法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h1>
+<p>熵权法构建系数利用了信息论的知识。简单的说，数据的变异程度（方差）越大，就说明这个指标蕴含的信息量越大，也就越重要。例如：一个指标都是相同的数值，那么这个指标的变异程度（方差）就超级小，也没对最终的判断做出贡献，所以这个指标的权重就可以赋为0。</p>
+<h2 id="_10">模型思想<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>记信息量为<span class="arithmatex">\(I(p)\)</span>，概率为<span class="arithmatex">\(p\)</span>，有<span class="arithmatex">\(I(1)=0\)</span>、<span class="arithmatex">\(I(0^+)=+\infty\)</span>，可以得到一个<span class="arithmatex">\(I\)</span>与<span class="arithmatex">\(p\)</span>呈反比的函数图像。</p>
+<p>构造<span class="arithmatex">\(I(x)=- \ln{p(x)}\)</span>保证<span class="arithmatex">\(0 \leqslant p(x) \leqslant 1\)</span>。<span class="arithmatex">\(x\)</span>表示事情发送的情况，<span class="arithmatex">\(p(x)\)</span>表示事情发生的概率。</p>
+<p>可定义事件<span class="arithmatex">\(X={x_1,x_2,...,x_n}\)</span>(<span class="arithmatex">\(x_i\)</span>为发生情况)的信息熵为：
+$$
+H(X)=\sum_{i=1}^{n}\left[p\left(x_{i}\right) I\left(x_{i}\right)\right]=-\sum_{i=1}^{n}\left[p\left(x_{i}\right) \ln \left(p\left(x_{i}\right)\right)\right]
+$$
+信息熵的本质是对信息量的期望值。</p>
+<p><strong>注</strong>：可证当<span class="arithmatex">\(p(x_1)=p(x_2)=...=p(x_n)=\frac{1}{n}\)</span>时<span class="arithmatex">\(H(x)\)</span>取得最大值为<span class="arithmatex">\(\ln n\)</span>。</p>
+<h2 id="_11">基本步骤<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ol>
+<li>矩阵正向化和标准化</li>
+</ol>
+<div class="arithmatex">\[
+Z=\left[\begin{array}{cccc}
+z_{11} &amp; z_{12} &amp; \cdots &amp; z_{1 m} \\
+z_{21} &amp; z_{22} &amp; \cdots &amp; z_{2 m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+z_{n 1} &amp; z_{n 2} &amp; \cdots &amp; z_{n m}
+\end{array}\right]
+\]</div>
+<ol>
+<li>对已经正向化和标准化的矩阵，若有负数需再次归一化(另一种标准化)</li>
+</ol>
+<div class="arithmatex">\[
+\tilde{z}_{i j}=\frac{x_{i j}-\min \left\{x_{1 j}, x_{2 j}, \cdots, x_{n j}\right\}}{\max \left\{x_{1 j}, x_{2 j}, \cdots, x_{n j}\right\}-\min \left\{x_{1 j}, x_{2 j}, \cdots, x_{n j}\right\}}
+\]</div>
+<ol>
+<li>计算概率矩阵</li>
+</ol>
+<div class="arithmatex">\[
+p_{i j}=\frac{\tilde{z}_{i j}}{\sum_{i=1}^{n} \tilde{z}_{i j}}
+\]</div>
+<ol>
+<li>计算熵值。之所以除以了一个 <span class="arithmatex">\(ln(n)\)</span> 是为了归一化</li>
+</ol>
+<div class="arithmatex">\[
+e=-\frac{1}{\ln (n)} \times \sum_{i=1}^{n} p_{i} \ln \left(p_{i}\right)
+\]</div>
+<ol>
+<li>构建权重。首先用<span class="arithmatex">\(1-e_j\)</span>得到信息的效用值，之后因为权重只和为<span class="arithmatex">\(1\)</span>，在对权重进行归一化即可得到<span class="arithmatex">\(w_j\)</span>权重</li>
+</ol>
+<div class="arithmatex">\[
+d_j=1-e_j
+\]</div>
+<div class="arithmatex">\[
+w_j=\frac{d_j}{\sum_{j=1}^m d_j}
+\]</div>
+<blockquote>
+<p>熵权法仅仅能反应指标信息量的大小，并不能反应指标的重要程度，所以使用熵权法加权的评价模型得到的结果往往比未加权的结果变化幅度更大，增减趋势更明显。但似乎并不能得到一个客观的评分？
+(22.1.21)</p>
+</blockquote>
+<p><img alt="越往右越趋近正常的熵权法权重" src="https://pic.imgdb.cn/item/621c62d12ab3f51d911ebe63.png" /></p>
+<h1 id="_12">*归一化与标准化<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h1>
+<p>它们都是指特征工程中的特征线性缩放过程</p>
+<p><strong>作用</strong>：</p>
+<ol>
+<li>使不同量纲的特征处于同一数值量级，减少方差大的特征的影响，使模型更准确。</li>
+<li>加快学习算法的收敛速度。</li>
+</ol>
+<p><strong>缩放过程可以分为以下几种</strong>：</p>
+<ol>
+<li>缩放到均值为0，方差为1（Standardization——StandardScaler()）</li>
+<li>缩放到0和1之间（Standardization——MinMaxScaler()）</li>
+<li>缩放到-1和1之间（Standardization——MaxAbsScaler()）</li>
+<li>缩放到0和1之间，保留原始数据的分布（Normalization——Normalizer()）</li>
+</ol>
+<p>1就是常说的z-score归一化，2是min-max归一化。</p>
+<h2 id="normalization">归一化（Normalization）<a class="headerlink" href="#normalization" title="Permanent link">&para;</a></h2>
+<h3 id="1mean-normalization">1.平均归一化（Mean Normalization）<a class="headerlink" href="#1mean-normalization" title="Permanent link">&para;</a></h3>
+<p>这种归一化需防止在线学习或在线推理中，新进样本突破原始min或max数据</p>
+<div class="arithmatex">\[
+\frac{X_{i}-\mu }{X_{\max }-X_{\min }}
+\]</div>
+<p><strong>其中</strong>：<span class="arithmatex">\(X_{min}\)</span>表示对应矩阵中最小的数;<span class="arithmatex">\(X_{max}\)</span>表示对应矩阵中最大的数</p>
+<h3 id="2minmaxrescaling">2.minmax归一化（Rescaling）<a class="headerlink" href="#2minmaxrescaling" title="Permanent link">&para;</a></h3>
+<p>这种归一化需防止在线学习或在线推理中，新进样本突破原始min或max数据</p>
+<div class="arithmatex">\[
+\frac{X_{i}-X_{\min }}{X_{\max }-X_{\min }}
+\]</div>
+<h3 id="3non-linear-normlization">3.非线性归一化（Non-Linear Normlization）<a class="headerlink" href="#3non-linear-normlization" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\begin{array}{c}
+\lg x \\
+\log _{2} x \\
+\frac{2}{\pi} \arctan x
+\end{array}
+\]</div>
+<p>这种归一化需考虑数据分布，进行适当的非线性函数选取。</p>
+<h2 id="standardization">标准化（Standardization）<a class="headerlink" href="#standardization" title="Permanent link">&para;</a></h2>
+<h3 id="1z-score">1.Z-Score标准化<a class="headerlink" href="#1z-score" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\frac{X_{i}-\mu}{\sigma}
+\]</div>
+<p>这种标准化需要要求原数据近似高斯分布。</p>
+<p><strong>其中</strong>：<span class="arithmatex">\(\mu\)</span>表示矩阵均值;<span class="arithmatex">\(\sigma\)</span>表示矩阵标准差</p>
+<h2 id="centralization">中心化（Centralization）<a class="headerlink" href="#centralization" title="Permanent link">&para;</a></h2>
+<p>对于中心化，有的地方成为Mean-Subtraction，表示均值-减去（有点日本话的感觉），有的地方称之为Zero-Mean即零均值化，还有的为Zero-Centered这个只可意会很难翻译。但总而言之，他们都是下面这个形式：</p>
+<div class="arithmatex">\[
+x_i-\mu
+\]</div>
+<h2 id="_13">区别和用途<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>归一化和标准化的相同点都是对某个特征（column）进行缩放（scaling）而不是对某个样本的特征向量（row）进行缩放。对特征向量进行缩放是毫无意义的。</p>
+<p>归一化和标准化都保持数据分布不变的情况下（两者本质上都只是对数据进行线性变化），对数据进行处理，但是从公式上面还是能够明显看出来，归一化的处理只是和最大值最小值相关，归一化后样本会失去原始的信息；标准化却是和数据的分布相关（均值，方差）。归一化更好保留了样本间间距；标准化的统计意义更强，是数据缩放的首选。</p>
+<table>
+<thead>
+<tr>
+<th align="center">归一化</th>
+<th align="left"><font size=1>将一列数据“拍扁”到某个固定区间(常为[0,1]),和最大/小值有关</font></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>标准化</strong></td>
+<td align="left"><font size=1><strong>将数据变换为均值0,标准差为1的分布(并非一定正态),缩放和每个点都有关(通过均值+方差体现)</strong></font></td>
+</tr>
+<tr>
+<td align="center"><strong>中心化</strong></td>
+<td align="left"><font size=1><strong>变量减去均值，可避免异常值和极端值的影响，本质为口个平移过程，平移后数据中心是原点0</strong></font></td>
+</tr>
+</tbody>
+</table>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://www.cnblogs.com/xiashiwendao/p/12130992.html">https://www.cnblogs.com/xiashiwendao/p/12130992.html</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://baike.baidu.com/item/TOPSIS%E6%B3%95/3094166?fr=aladdin">https://baike.baidu.com/item/TOPSIS%E6%B3%95/3094166?fr=aladdin</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://blog.csdn.net/limiyudianzi/article/details/103410150">https://blog.csdn.net/limiyudianzi/article/details/103410150</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>bilibili:数学建模学习交流&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://www.zhihu.com/question/20467170">https://www.zhihu.com/question/20467170</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p><a href="https://zhuanlan.zhihu.com/p/364338617">https://zhuanlan.zhihu.com/p/364338617</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        
+      
+    
+  </body>
+</html>

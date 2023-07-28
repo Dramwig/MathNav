@@ -1,0 +1,1522 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="西南交通大学数学建模协会提供的数学建模导航。">
+      
+      
+        <meta name="author" content="dramwig">
+      
+      
+      
+        <link rel="prev" href="../%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7/">
+      
+      
+        <link rel="next" href="../%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/">
+      
+      <link rel="icon" href="https://pic.imgdb.cn/item/64c26a631ddac507cc8cd206.webp">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+    
+    
+      
+        <title>因子分析 - 交大数学建模导航 - MathNav</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../resources/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#factor-analysisfa" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="交大数学建模导航 - MathNav" class="md-header__button md-logo" aria-label="交大数学建模导航 - MathNav" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            交大数学建模导航 - MathNav
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              因子分析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="交大数学建模导航 - MathNav" class="md-nav__button md-logo" aria-label="交大数学建模导航 - MathNav" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    交大数学建模导航 - MathNav
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.en/" class="md-nav__link">
+        Home-en
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../update/" class="md-nav__link">
+        Update
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/" class="md-nav__link">
+        书籍
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          模型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%81%B0%E8%89%B2%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90/" class="md-nav__link">
+        灰色关联分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="md-nav__link">
+        回归分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/" class="md-nav__link">
+        聚类分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7/" class="md-nav__link">
+        模糊综合评价
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          因子分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        因子分析
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    步骤
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    模型
+  </a>
+  
+    <nav class="md-nav" aria-label="模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    数学模型
+  </a>
+  
+    <nav class="md-nav" aria-label="数学模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    模型的性质
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    载荷矩阵统计性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    因子载荷矩阵估计法
+  </a>
+  
+    <nav class="md-nav" aria-label="因子载荷矩阵估计法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    主成分分析法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    主因子法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    极大似然估计法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    因子旋转
+  </a>
+  
+    <nav class="md-nav" aria-label="因子旋转">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    方差最大的正交旋转
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    四次方最大化旋转
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    等量最大法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    因子得分
+  </a>
+  
+    <nav class="md-nav" aria-label="因子得分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    加权最小二乘法（巴特莱特因子得分）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    回归法（汤普森因子得分）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    两种估计方法的比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    缺陷
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    备注
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95/" class="md-nav__link">
+        优劣解距离法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90/" class="md-nav__link">
+        主成分分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="md-nav__link">
+        层次分析法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8F%92%E5%80%BC%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        插值算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B8%E5%9E%8B%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90/" class="md-nav__link">
+        典型相关分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        分类模型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          算法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E6%8B%9F%E7%89%9B%E9%A1%BF%E6%B3%95/" class="md-nav__link">
+        拟牛顿法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E4%B8%8E%E9%AB%98%E6%96%AF%E7%89%9B%E9%A1%BF%E6%B3%95/" class="md-nav__link">
+        牛顿迭代与高斯牛顿法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E7%99%BB%E5%B1%B1%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        登山问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E4%BA%8C%E7%BB%B4%E5%AF%BC%E7%83%AD/" class="md-nav__link">
+        二维导热
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        旅行商问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BC%96%E7%A8%8B/%E5%B1%B1%E5%8C%BA%E5%9C%B0%E8%B2%8C/" class="md-nav__link">
+        山区地貌
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    步骤
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    模型
+  </a>
+  
+    <nav class="md-nav" aria-label="模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    数学模型
+  </a>
+  
+    <nav class="md-nav" aria-label="数学模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    模型的性质
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    载荷矩阵统计性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    因子载荷矩阵估计法
+  </a>
+  
+    <nav class="md-nav" aria-label="因子载荷矩阵估计法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    主成分分析法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    主因子法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    极大似然估计法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    因子旋转
+  </a>
+  
+    <nav class="md-nav" aria-label="因子旋转">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    方差最大的正交旋转
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    四次方最大化旋转
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    等量最大法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    因子得分
+  </a>
+  
+    <nav class="md-nav" aria-label="因子得分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    加权最小二乘法（巴特莱特因子得分）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    回归法（汤普森因子得分）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    两种估计方法的比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    缺陷
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    备注
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="factor-analysisfa">因子分析（Factor Analysis，FA）<a class="headerlink" href="#factor-analysisfa" title="Permanent link">&para;</a></h1>
+<p>用少数几个假象变量来表示其根本的数据结构，能反应原来众多变量的主要信息。因子分析的前提条件是观测变量间有较强的相关性，这样才能有共享因子。</p>
+<p><img alt="高中生成绩分析" src="https://s2.loli.net/2022/02/18/56XgZSYPbUt9LHW.png" /></p>
+<h2 id="_1">步骤<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>选择分析变量</li>
+<li>计算所选原始变量的相关系数矩阵</li>
+<li>提取公共因子，确定因子数目</li>
+<li>因子旋转，解释因子</li>
+<li>计算因子得分</li>
+</ul>
+<h2 id="_2">模型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>本文的变量名大体可分为三种：大写粗体、大写、小写。\
+大写粗体一般表示整个矩阵，一般为二维；大写参数一般表示为指标/因子，包含 <span class="arithmatex">\(n\)</span> 个元素（观测值）可以看作向量；小写表示元素或单个变量。</p>
+</blockquote>
+<h3 id="_3">数学模型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>记 <span class="arithmatex">\(m\)</span> 个观测值 <span class="arithmatex">\(X_i(i=1,2,\dots,m)\)</span> 可以表示为</p>
+<div class="arithmatex">\[
+X_{i}=\mu_{i}+\alpha_{i 1} F_{1}+\cdots+\alpha_{i m} F_{m}+\varepsilon_{i}
+\]</div>
+<p>即</p>
+<div class="arithmatex">\[\left[\begin{array}{c}
+X_{1} \\
+X_{2} \\
+\vdots \\
+X_{m}
+\end{array}\right]=\left[\begin{array}{c}
+\mu_{1} \\
+\mu_{2} \\
+\vdots \\
+\mu_{m}
+\end{array}\right]+\left[\begin{array}{cccc}
+\alpha_{11} &amp; \alpha_{12} &amp; \cdots &amp; \alpha_{1 r} \\
+\alpha_{21} &amp; \alpha_{22} &amp; \cdots &amp; \alpha_{2 r} \\
+\vdots &amp; \vdots &amp; &amp; \vdots \\
+\alpha_{m 1} &amp; \alpha_{m 2} &amp; \cdots &amp; \alpha_{m r}
+\end{array}\right]\left[\begin{array}{c}
+F_{1} \\
+F_{2} \\
+\vdots \\
+F_{r}
+\end{array}\right]+\left[\begin{array}{c}
+\varepsilon_{1} \\
+\varepsilon_{2} \\
+\vdots\\
+ \varepsilon_{m}
+\end{array}\right]\]</div>
+<p>即
+$$
+\boldsymbol{X}-\boldsymbol{\mu}=\boldsymbol{\Lambda}\boldsymbol{F}+\boldsymbol{\varepsilon}
+$$</p>
+<p>满足：</p>
+<ol>
+<li><span class="arithmatex">\(E(\boldsymbol{F})=0\)</span> 且 <span class="arithmatex">\(E(\boldsymbol{\varepsilon})=0\)</span></li>
+<li>载荷因子 <span class="arithmatex">\(F_i\)</span> 之间无线性关系： <span class="arithmatex">\(Cov(\boldsymbol{F})=E_m\)</span></li>
+<li>特殊因子 <span class="arithmatex">\(\varepsilon_i\)</span> 之间无线性关系： <span class="arithmatex">\(Cov(\boldsymbol{\varepsilon})=D(\boldsymbol{\varepsilon})=diag(\sigma _1^2,\sigma _2^2,\dots,\sigma _m^2)\)</span></li>
+<li>特殊因子和载荷因子无线性关系：<span class="arithmatex">\(Cov(\boldsymbol{F},\boldsymbol{\varepsilon})=0\)</span></li>
+</ol>
+<h4 id="_4">模型的性质<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>原子变量 <span class="arithmatex">\(\boldsymbol{X}\)</span> 的协方差矩阵分解</strong></li>
+</ul>
+<p>由 <span class="arithmatex">\(\boldsymbol{X}-\boldsymbol{\mu}=\boldsymbol{\Lambda}\boldsymbol{F}+\boldsymbol{\varepsilon}\)</span> 得 <span class="arithmatex">\(Cov(\boldsymbol{X}-\boldsymbol{\mu})=\boldsymbol{\Lambda}Cov(\boldsymbol{F})\boldsymbol{\Lambda}^T+Cov(\boldsymbol{\varepsilon})\)</span> 即</p>
+<div class="arithmatex">\[
+Cov(\boldsymbol{X})=\boldsymbol{\Lambda}\boldsymbol{\Lambda}^T+D(\boldsymbol{\Lambda})
+\]</div>
+<p><span class="arithmatex">\(\sigma _1^2,\sigma _2^2,\dots,\sigma _m^2\)</span> 的值越小，公共因子贡献成分越多。</p>
+<ul>
+<li><strong>因子载荷矩阵不唯一（可旋转的原因）</strong></li>
+</ul>
+<p>设 <span class="arithmatex">\(\Gamma\)</span> 是一个标准正交矩阵，有
+$$
+\widetilde{\boldsymbol{\Lambda}}=\boldsymbol{\Lambda}\Gamma , \widetilde{\boldsymbol{F}}=\Gamma^{\tiny T}\boldsymbol{F} 
+$$
+$$
+\boldsymbol{X}=\boldsymbol{\mu}+\widetilde{\boldsymbol{\Lambda}}\widetilde{\boldsymbol{F}}+\boldsymbol{\varepsilon}
+$$</p>
+<h4 id="_5">载荷矩阵统计性质<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong><span class="arithmatex">\(\alpha_{i j}\)</span> 的含义</strong></li>
+</ul>
+<p>因子载荷矩阵 <span class="arithmatex">\(\alpha_{i j}\)</span> 表示第 <span class="arithmatex">\(i\)</span> 个变量与第 <span class="arithmatex">\(j\)</span> 个公共因子的相关系数，反应第 <span class="arithmatex">\(i\)</span> 个变量与第 <span class="arithmatex">\(j\)</span> 个公共因子的相关重要性。 <span class="arithmatex">\(|\alpha_{i j}|\)</span> 越大，相关的密切程度越高。</p>
+<ul>
+<li><strong>变量共同度的统计意义</strong></li>
+</ul>
+<p>变量 <span class="arithmatex">\(X_i\)</span> 的共同度是因子载荷矩阵第 <span class="arithmatex">\(i\)</span> 行的元素平方和，记 <span class="arithmatex">\(h_i^2=\sum\limits_{j=1}^{r}\alpha_{ij}^2\)</span></p>
+<p>因为</p>
+<div class="arithmatex">\[
+Var(X_i)=\alpha_{i1}^2Var(F_1)+\dots+\alpha_{ir}^2Var(F_r)+Var(\varepsilon_i)
+\]</div>
+<p>得</p>
+<div class="arithmatex">\[
+1=\sum\limits_{j=1}^{r}\alpha_{ij}^2+\sigma_i^2
+\]</div>
+<p>可以看出 <span class="arithmatex">\(h_i^2\)</span> 越靠近 <span class="arithmatex">\(1\)</span> ， <span class="arithmatex">\(\sigma_i^2\)</span> 越靠近 <span class="arithmatex">\(0\)</span> ， 原变量 <span class="arithmatex">\(X_i\)</span> 被公共因子表现的越好。</p>
+<ul>
+<li><strong>公共因子 <span class="arithmatex">\(F_j\)</span> 的方差贡献统计意义</strong></li>
+</ul>
+<p>因子 <span class="arithmatex">\(F_j\)</span> 的方差贡献和是因子载荷矩阵第 <span class="arithmatex">\(j\)</span> 列的平方和，记为 <span class="arithmatex">\(S_j=\sum\limits_{i=1}^{m} \alpha_{ij}^2=\lambda_j\)</span></p>
+<p>用于衡量 <span class="arithmatex">\(F_j\)</span> 的相对重要性。</p>
+<ul>
+<li><strong>残差阵</strong></li>
+</ul>
+<p>用原协方差阵减去公因子协方差阵与特殊因子协方差阵，得到残差阵</p>
+<div class="arithmatex">\[
+(\epsilon_{ij})_{m\times m} = \boldsymbol{R}-(\boldsymbol{\Lambda}\boldsymbol{\Lambda}^T+\boldsymbol{D})
+\]</div>
+<p>残差阵元素的平方和为残差平方和</p>
+<div class="arithmatex">\[
+Q(m)=\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\epsilon_{ij}^2 \le \sum\limits_{k=r+1}^{m}\lambda_k^2
+\]</div>
+<h3 id="_6">因子载荷矩阵估计法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="_7">主成分分析法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>和“主成分分析”本质相同，主成分分析是将样本经过载荷矩阵 <span class="arithmatex">\(\boldsymbol{P}\)</span> 变换到坐标轴上使得坐标轴方向方差最大；因子分析的主成分分析法相当于主成分分析的逆过程，因子代表的 <span class="arithmatex">\(\R^r\)</span> 空间上的点，经过因子载荷矩阵 <span class="arithmatex">\(\boldsymbol{\Lambda}\)</span> 变换后得原样本点。</p>
+</blockquote>
+<p>设样本相关系数矩阵为 <span class="arithmatex">\(\boldsymbol{R}\)</span> ，计算其特征值为 <span class="arithmatex">\(\lambda_1,\lambda_2,\dots,\lambda_m\)</span> (<span class="arithmatex">\(\lambda_1\ge \lambda_2\ge \dots\ge \lambda_m\)</span>)  ，对应的特征向量为 <span class="arithmatex">\(\boldsymbol{\eta} _1,\boldsymbol{\eta} _2,\dots,\boldsymbol{\eta} _m\)</span> ，记 <span class="arithmatex">\(\boldsymbol{H}=[\boldsymbol{\eta }_1,\boldsymbol{\eta }_2,\dots,\boldsymbol{\eta }_m]\)</span> 有</p>
+<div class="arithmatex">\[
+\boldsymbol{R}=\boldsymbol{H}\begin{bmatrix}
+  \boldsymbol{\lambda_1}&amp;  &amp;  &amp; \\
+  &amp; \boldsymbol{\lambda_2} &amp;  &amp; \\
+  &amp;  &amp;\ddots &amp; \\
+  &amp;  &amp;  &amp; \boldsymbol{\lambda_1}
+\end{bmatrix}\boldsymbol{H}^T=\boldsymbol{\Lambda}\boldsymbol{\Lambda}^T+D
+\]</div>
+<p>（ <span class="arithmatex">\(\small\boldsymbol{D}\)</span> 被忽略）即因子载荷矩阵为</p>
+<div class="arithmatex">\[
+\boldsymbol{\Lambda}=[\sqrt{\lambda_1}\boldsymbol{\eta_1},\sqrt{\lambda_2}\boldsymbol{\eta_2},\dots,\sqrt{\lambda_m}\boldsymbol{\eta_m}]
+\]</div>
+<p>使得公共因子方差贡献<span class="arithmatex">\(S_j=\lambda_j\)</span></p>
+<p>根据碎石图，用碎石原则确定因子个数 <span class="arithmatex">\(r\)</span>。</p>
+<p>特殊因子方差可以用 <span class="arithmatex">\(\boldsymbol{R}-\boldsymbol{\Lambda}\boldsymbol{\Lambda}^T\)</span> 的主对角线元素估计：</p>
+<div class="arithmatex">\[
+\sigma_i^2=1-\sum_{j=1}^m\alpha_{ij}^2
+\]</div>
+<p><strong>缺点</strong>：上式有一个假定，模型中的特殊因子是不重要的，因而从 <span class="arithmatex">\(\boldsymbol{R}\)</span> 的**分解中忽略了特殊因子的方差**。所得的特殊因子 <span class="arithmatex">\(\varepsilon_{1}，\varepsilon_{2},...,\varepsilon_{p}\)</span> 之间并不相互独立，不完全符合假设前提。因此，当共同度较大时，特殊因子所起作用小时，它们之间存在的相关性所带来的影响可以几乎忽略。实际应用中，可以先用主成分法进行分析，再尝试其他方法。</p>
+<h4 id="_8">主因子法<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>主因子方法是对主成分方法的修正，假定我们首先对变量进行标准化变换。则</p>
+<div class="arithmatex">\[
+\boldsymbol{R}=\boldsymbol{\Lambda}\boldsymbol{\Lambda}^T+\boldsymbol{D}\\
+\boldsymbol{R}^*=\boldsymbol{\Lambda}\boldsymbol{\Lambda}^T=\boldsymbol{R}-\boldsymbol{D}
+\]</div>
+<p>式中 <span class="arithmatex">\(\boldsymbol{R}^*\)</span> 为约相关系数矩阵，其对角线上的元素为 <span class="arithmatex">\(h_i^2\)</span> 。</p>
+<p>特殊因子方差是未知的，一般通过样本估计得到。方法可以有；</p>
+<ol>
+<li>取 <span class="arithmatex">\(\hat{h_i^2}=1\)</span> ，这种情况下主因子解与主成分分解等价</li>
+<li>取 <span class="arithmatex">\(\hat{h_i^2}=\max\limits_{\tiny i \ne j}|r_{ij}|\)</span> ，取 <span class="arithmatex">\(X_i\)</span> 与其他指标简单相关系数最大者</li>
+<li>取 <span class="arithmatex">\(\hat{h_i^2}=\frac{1}{m-1}\sum\limits_{sj=1,j\ne i}^{m}r_{ij}\)</span> ，其中要求该值为正数</li>
+</ol>
+<p>记</p>
+<div class="arithmatex">\[
+\boldsymbol{R}^*=\boldsymbol{R}-\boldsymbol{D}=\left[\begin{array}{cccc}
+\hat{h_{1}^{2}} &amp; r_{12} &amp; \cdots &amp; r_{1 m} \\
+r_{21} &amp; \hat{h_{2}^{2}} &amp; \cdots &amp; r_{2 m} \\
+\vdots &amp; \vdots &amp; &amp; \vdots \\
+r_{m 1} &amp; r_{m 2} &amp; \cdots &amp; \hat{h_{m}^{2}}
+\end{array}\right]
+\]</div>
+<p>直接求出 <span class="arithmatex">\(\boldsymbol{R}^*\)</span> 的特征值为 <span class="arithmatex">\(\lambda_1^*,\lambda_2^*,\dots,\lambda_m^*\)</span> (<span class="arithmatex">\(\lambda_1^*\ge \lambda_2^*\ge \dots\ge \lambda_m^*\)</span>)  ，和对应的特征向量为 <span class="arithmatex">\(\boldsymbol{\eta} _1^*,\boldsymbol{\eta} _2^*,\dots,\boldsymbol{\eta} _m^*\)</span> ，得到载荷矩阵：</p>
+<div class="arithmatex">\[
+\boldsymbol{\Lambda}=[\sqrt{\lambda_1^*}\boldsymbol{\eta}_1^*,\sqrt{\lambda_2^*}\boldsymbol{\eta}_2^*,\dots,\sqrt{\lambda_m^*}\boldsymbol{\eta}_m^*]
+\]</div>
+<h4 id="_9">极大似然估计法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>假设数据 <span class="arithmatex">\(X_1,...,X_n\)</span> 服从 <span class="arithmatex">\(m\)</span> 元正态，公因子与特殊因子也假定服从正态。</p>
+<div class="arithmatex">\[
+L(\mu, \boldsymbol{\Lambda}, \boldsymbol{D})=\prod_{i=1}^{d} \frac{1}{(2 \pi)^{m / 2}|\boldsymbol{R}|^{1 / 2}} \exp \left[-\frac{1}{2}\left(\boldsymbol{X}_{\mathbf{i}}-\mu\right)^{\prime} \boldsymbol{\boldsymbol{R}}^{-1}\left(\boldsymbol{X}_{\mathbf{i}}-\mu\right)\right]
+\]</div>
+<p>用数值极大化的方法可以得到极大似然估计。</p>
+<p>Matlab 工具箱求因子载荷矩阵使用的是最大似然估计，其命令为 <code>factoran</code> 。</p>
+<h3 id="_10">因子旋转<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>建立因子模型不仅要得到公共因子，还要能解释这些公共因子的具体含义。</p>
+<p>由于因子载荷矩阵不唯一，所以可以对载荷矩阵进行旋转，使得载荷矩阵每行或每列的元素平方值向 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(1\)</span> 两极分化，即使信息分布尽可能不均匀，也就是信息要集中分布于几个不同的因子上。</p>
+<div class="arithmatex">\[
+\boldsymbol{X} = \boldsymbol{\Lambda }\Gamma {\Gamma ^{ - 1}} \boldsymbol{F} + \boldsymbol{\varepsilon}
+\]</div>
+<p><img alt="旋转结果（r=4）" src="https://s2.loli.net/2022/02/18/jwF6TtrqLuAHeoD.png" /></p>
+<p>因为是对整个 <span class="arithmatex">\(\R^r\)</span> 的空间正交变换（可以理解为坐标轴旋转或者样本旋转），所以银子旋转不会是损耗信息量只会改变因子载荷矩阵的权重分配，<strong>变量共同度 <span class="arithmatex">\(h_i^2\)</span> 不变</strong>，<strong>因子方差贡献 <span class="arithmatex">\(S_j\)</span> 不变</strong>（正交旋转不改变向量长度）。</p>
+<p>对于任意两列，正交矩阵形式可以设为</p>
+<div class="arithmatex">\[
+\Gamma=\left[\begin{array}{ll} \cos \phi &amp; -\sin \phi \\ \sin \phi &amp; \cos \phi \end{array}\right]\\
+\]</div>
+<p>带入得到</p>
+<div class="arithmatex">\[
+\boldsymbol{\Lambda}^*=\boldsymbol{\Lambda} \Gamma=\left[\begin{array}{ll} \alpha_{11} \cos \phi+\alpha_{12} \sin \phi &amp; -\alpha_{11} \sin \phi+\alpha_{12} \cos \phi \\ \vdots &amp; \vdots \\ \alpha_{p 1} \cos \phi+a_{p 2} \sin \phi &amp; -\alpha_{p 1} \sin \phi+\alpha_{p 2} \cos \phi \end{array}\right]=
+\left[\begin{array}{ll}
+\alpha_{11}^* &amp;  \alpha_{12}^*\\
+ \vdots &amp;  \vdots \\ 
+\alpha_{m 1}^* &amp;\alpha_{m2}^*
+\end{array}\right]
+\]</div>
+<h4 id="_11">方差最大的正交旋转<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p><strong>基本思想：</strong> <span class="arithmatex">\(\alpha_{ij}^*\)</span> 表示变量 <span class="arithmatex">\(i\)</span> 与因子 <span class="arithmatex">\(j\)</span> 的关联程度，要使每一列的元素值越分散，就要 <strong>使因子载荷矩阵的每一列元素的方差更大</strong>。</p>
+<p>因为 <span class="arithmatex">\(r&lt;m\)</span> ，每一行向量的长度不统一，所以先对每一行都除以共同度 <span class="arithmatex">\(h_i^2\)</span> ，记</p>
+<div class="arithmatex">\[
+d_{i j}=\frac{ { \alpha_{i j}^{*} }^2 }{h_i^2} , \scriptsize  (i=1,2,\dots,m,j=1,2,\dots,r)
+\]</div>
+<p>定义因子载荷第 j 列的方差为</p>
+<div class="arithmatex">\[
+V_{j}=\frac{1}{m}\sum\limits_{\tiny i=1}^{\tiny m}\left(d_{i j}^{2}-\bar{d}_{j}\right)^{2}=\frac{1}{m^2}\left[m \sum_{i=1}^{m} d_{ij}^2-{\left(\sum_{i=1}^{m} d_{ij}\right)}^{2}\right]\\
+\]</div>
+<p>其中 <span class="arithmatex">\(\bar{d}_{j}=\frac{1}{m} \sum\limits_{\tiny i=1}^{\tiny m} d_{i j}^{2}\)</span></p>
+<p>定义因子载荷矩阵 <span class="arithmatex">\(\boldsymbol{\Lambda}\)</span> 的方差等于每一列的方差之和</p>
+<div class="arithmatex">\[
+V=\sum_{j=1}^rV_{j}=\frac{1}{m^2}\sum_{j=1}^{r}\left[m \sum_{i=1}^{m} d_{ij}^2-{\left(\sum_{i=1}^{m} d_{ij}\right)}^{2}\right]
+\]</div>
+<ul>
+<li><strong>二维空间</strong></li>
+</ul>
+<p>设因子载荷矩阵有两列 <span class="arithmatex">\(r=2\)</span> ，</p>
+<div class="arithmatex">\[
+\boldsymbol{\Lambda}^*=\boldsymbol{\Lambda} \Gamma=\left[\begin{array}{ll}
+\alpha_{11}^* &amp;  \alpha_{12}^*\\
+ \vdots &amp;  \vdots \\ 
+\alpha_{m 1}^* &amp;\alpha_{m2}^*
+\end{array}\right]\\
+\]</div>
+<p>将 <span class="arithmatex">\(\boldsymbol{\Lambda}^*\)</span> 带入 <span class="arithmatex">\(V_{\boldsymbol{\Lambda}}\)</span> ，让 <span class="arithmatex">\(V_{\boldsymbol{\Lambda}^*}\)</span> 对 <span class="arithmatex">\(\phi\)</span> 求导数</p>
+<p>令</p>
+<div class="arithmatex">\[
+\frac{\partial V_{\boldsymbol{\Lambda}}}{\partial \phi}=0
+\]</div>
+<p>得到 <span class="arithmatex">\(\phi\)</span> 应该满足</p>
+<div class="arithmatex">\[
+\tan 4 \phi=\frac{d-2 ab / m}{c-\left(a^{2}-b^{2}\right) / m}
+\]</div>
+<p>其中，若记</p>
+<div class="arithmatex">\[
+\mu_{i}=d_{i1}-d_{i2} , \quad \nu_{i}=2 \frac{\alpha_{i 1}\alpha_{i 2}}{h_{i}^{2}}=2\sqrt{d_{i1}d_{i2}}
+\]</div>
+<p>则</p>
+<div class="arithmatex">\[
+\begin{array}{c}
+a=\sum\limits_{i=1}^{m} \mu_{i}, \quad b=\sum\limits_{i=1}^{m} \nu_{i}, \\
+c=\sum\limits_{i=1}^{m}\left(\mu_{i}^{2}-\nu_{i}^{2}\right), \quad d=2 \sum\limits_{i=1}^{m} \mu_{i} \nu_{i} .
+\end{array}
+\]</div>
+<ul>
+<li><strong>高维空间</strong></li>
+</ul>
+<p>当  <span class="arithmatex">\(m{\small&gt;}2\)</span>  时, 可逐次对每两个因子  <span class="arithmatex">\(F_{i}, F_{j}\small (i \neq j)\)</span>  进行以上旋转。</p>
+<p>选择正交旋转的角度  <span class="arithmatex">\(\varphi_{i j}\)</span> ，即使这两个因子的方差之和达最大。 <span class="arithmatex">\(m\)</span>  个因子的全部配对旋转， 共需旋转  <span class="arithmatex">\(C_{m}^{2}\)</span>  次，全部旋转 完毕即算一次循环 (或一轮)。经第一轮旋转后计算所得的因子载荷 方差  <span class="arithmatex">\(V_{(1)}\)</span> ， 此时不能认为  <span class="arithmatex">\(V_{(1)}\)</span>  就是最大方差，还需从旋转后的载荷矩 阵出发, 再进行第二轮、第三轮旋转, 直到  <span class="arithmatex">\(V\)</span> 不能再增大为止<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>。</p>
+<h4 id="_12">四次方最大化旋转<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p><strong>基本思想：</strong> 使得因子载荷的每一行只在少部分地方取较大的值，每个变量只在一个因子上有较高的载荷，即 <strong>使因子载荷矩阵每一行的元素方差最大化</strong>。</p>
+<p>用于度量方差的量为</p>
+<div class="arithmatex">\[
+Q=\sum_{i=1}^{m} \sum_{j=1}^{r}\left({\alpha_{i j}^{*}}^2-\frac{1}{r}\right)^{2} \overset{\tiny 化}{=} \sum_{i=1}^{m} \sum_{j=1}^{r}\left({\alpha_{i j}^{*}}^4-2+\frac{m}{r}\right)
+\]</div>
+<p>得到最简式</p>
+<div class="arithmatex">\[
+Q=\sum_{i=1}^{m} \sum_{j=1}^{r}{\alpha_{i j}^{*}}^4
+\]</div>
+<p>这里的 <span class="arithmatex">\(1/r\)</span> 可以理解为近似的每一行均值。</p>
+<h4 id="_13">等量最大法<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p><strong>基本思想：</strong> 同时考虑载荷矩阵每行的方差和每列的方差，对其加权平均最大化。</p>
+<p><span class="arithmatex">\(V\)</span> 近似化简为</p>
+<div class="arithmatex">\[
+V=-\frac{1}{m}\sum_{j=1}^{r}{\left(\sum_{i=1}^{m} d_{ij}\right)}^{2}\quad\color{Gray} \tiny ,\sum_{i=1}^{m} d_{ij}^2 \approx  1 ,\quad d_{ij}\approx \alpha_{i j}^{*} 
+\]</div>
+<p><span class="arithmatex">\(Q\)</span> 近似化简为</p>
+<div class="arithmatex">\[
+Q=\sum_{i=1}^{m} \sum_{j=1}^{r}{\alpha_{i j}^{*}}^4\color{Gray}\quad \tiny ,\frac{1}{r}\approx \sum_{j=1}^rd_{ij}^2  ,\quad d_{ij}\approx \alpha_{i j}^{*} 
+\]</div>
+<p>构造</p>
+<div class="arithmatex">\[
+E=\sum_{i=1}^{m} \sum_{j=1}^{r}{\alpha_{i j}^{*}}^4 - \frac{\gamma  }{m}\sum_{j=1}^{r}{\left(\sum_{i=1}^{m} d_{ij}\right)}^{2}
+\]</div>
+<p>其中 <span class="arithmatex">\(\gamma\)</span> 取 <span class="arithmatex">\(\frac{m}{2}\)</span></p>
+<h3 id="_14">因子得分<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>利用已知的观测值 <span class="arithmatex">\(\boldsymbol{X}\)</span> 与构造的因子载荷矩阵 <span class="arithmatex">\(\boldsymbol{\Lambda}\)</span> 可以对公共因子测度，即给出公共因子的值。</p>
+<p>因子分析的数学模型已经给出，为</p>
+<div class="arithmatex">\[
+\left[\begin{array}{c}
+X_{1} \\
+X_{2} \\
+\vdots \\
+X_{m}
+\end{array}\right]=\left[\begin{array}{c}
+\mu_{1} \\
+\mu_{2} \\
+\vdots \\
+\mu_{m}
+\end{array}\right]+\left[\begin{array}{cccc}
+\alpha_{11} &amp; \alpha_{12} &amp; \cdots &amp; \alpha_{1 r} \\
+\alpha_{21} &amp; \alpha_{22} &amp; \cdots &amp; \alpha_{2 r} \\
+\vdots &amp; \vdots &amp; &amp; \vdots \\
+\alpha_{m 1} &amp; \alpha_{m 2} &amp; \cdots &amp; \alpha_{m r}
+\end{array}\right]\left[\begin{array}{c}
+F_{1} \\
+F_{2} \\
+\vdots \\
+F_{r}
+\end{array}\right]+\left[\begin{array}{c}
+\varepsilon_{1} \\
+\varepsilon_{2} \\
+\vdots\\
+ \varepsilon_{m}
+\end{array}\right]
+\]</div>
+<p>注：此处的 <span class="arithmatex">\(X_1,X_2\dots;F_1,F_2\dots;\varepsilon_1,\varepsilon_2\dots\)</span> 都表示为一个指标下的一组 <span class="arithmatex">\(n\)</span> 个样本的值，即 <span class="arithmatex">\(X_i=[x_{i1},x_{i2},\dotsb,x_{in}]\)</span></p>
+<p>原变量 <span class="arithmatex">\(\boldsymbol{X}\)</span> 被表示为公共因子的线性组合，载荷矩阵旋转后，公共因子可以做出解释，现在目的是把公共因子用原变量线性表示出来。</p>
+<p>记因子得分函数为</p>
+<div class="arithmatex">\[
+F_j=c_j+\beta_{j1}X_1+\dotsb+\beta_{jm}X_m,\quad j=1,2,\dots,r
+\]</div>
+<p>要求因子的得分，我们想要得分函数的系数，而因为 <span class="arithmatex">\(m&gt;r\)</span> 不能得到精确的得分，载荷矩阵也不存在逆矩阵。</p>
+<h4 id="_15">加权最小二乘法（巴特莱特因子得分）<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p>把 <span class="arithmatex">\(X_i\)</span> 看作因变量，把因子载荷矩阵看作自变量(不妨设 <span class="arithmatex">\(\mu_i=0\)</span> )。</p>
+<div class="arithmatex">\[
+\left\{\begin{array}{l}
+X_{1}=\alpha _{11} F_{1}+\alpha_{12} F_{2}+\cdots+\alpha_{1 r} F_{r}+\varepsilon_{1} \\
+X_{2}=\alpha_{21} F_{1}+\alpha_{22} F_{2}+\cdots+\alpha_{2 r} F_{r}+\varepsilon_{2} \\
+\cdots \\
+X_{m}=\alpha_{\tiny m 1} F_{1}+\alpha_{\tiny m 2} F_{2}+\cdots+\alpha_{\tiny m r} F_{r}+\varepsilon_{p}
+\end{array}\right.
+\]</div>
+<p>考虑特殊因子方差相异，用加权的最小二乘法，使</p>
+<div class="arithmatex">\[
+\sum_{i=1}^m\frac{1}{\sigma_i^2}\left[(X_i)-(\alpha_{i1}\hat{F_1}+\dotsb+a_{ir}\hat{F_r})\right]^2
+\]</div>
+<p>最小的 <span class="arithmatex">\(\hat{F_1},\hat{F_2},\dots,\hat{F_r}\)</span> 是相应各个样本的因子得分。</p>
+<p>矩阵表示：</p>
+<div class="arithmatex">\[
+\boldsymbol{X}=\boldsymbol{\Lambda}\boldsymbol{F}+\boldsymbol{\varepsilon}
+\]</div>
+<p>要使</p>
+<div class="arithmatex">\[
+(\boldsymbol{X}-\boldsymbol{\Lambda}\hat{\boldsymbol{F}})^T\boldsymbol{D}^{-1}(\boldsymbol{X}-\boldsymbol{\Lambda}\hat{\boldsymbol{F}})
+\]</div>
+<p>即取偏导，令</p>
+<div class="arithmatex">\[
+\frac{\partial \phi(\boldsymbol{F})}{\partial \boldsymbol{F}}=2 \boldsymbol{\Lambda}^{T}(\boldsymbol{X}-\boldsymbol{\Lambda} \boldsymbol{F})=0
+\]</div>
+<p>达到最小，计算得</p>
+<div class="arithmatex">\[
+\hat{\boldsymbol{F}}=(\boldsymbol{\Lambda}^T\boldsymbol{\Lambda})^{-1}\boldsymbol{\Lambda}^T\boldsymbol{X}
+\]</div>
+<div class="arithmatex">\[
+\hat{\boldsymbol{F}}=(\boldsymbol{\Lambda}^T\boldsymbol{D}^{-1}\boldsymbol{\Lambda})^{-1}\boldsymbol{\Lambda}^T\boldsymbol{D}^{-1}\boldsymbol{X}
+\]</div>
+<blockquote>
+<p>这种方法得到的因子得分 <span class="arithmatex">\(F_i=[f_{i1},\dots,f_{in}]\)</span> 与主成分分析结果 <span class="arithmatex">\(Z_i=[z_{i1},\dots,z_{in}]\)</span>，仅仅相差一个常数： <span class="arithmatex">\(f_{ij}=z_{ij}/\sqrt{\lambda_j}\)</span></p>
+</blockquote>
+<h4 id="_16">回归法（汤普森因子得分）<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p>设</p>
+<div class="arithmatex">\[
+\left[\begin{array}{c}
+X_{1} \\
+X_{2} \\
+\vdots \\
+X_{m} 
+\end{array}\right]=\left[\begin{array}{cccc}
+\alpha_{11} &amp; \alpha_{12} &amp; \cdots &amp; \alpha_{1 r} \\
+\alpha_{21} &amp; \alpha_{22} &amp; \cdots &amp; \alpha_{2 r} \\
+\vdots &amp; \vdots &amp; &amp; \vdots \\
+\alpha_{m 1} &amp; \alpha_{m 2} &amp; \cdots &amp; \alpha_{m r}
+\end{array}\right]\left[\begin{array}{c}
+F_{1} \\
+F_{2} \\
+\vdots \\
+F_{r}
+\end{array}\right]+\left[\begin{array}{c}
+\varepsilon_{1} \\
+\varepsilon_{2} \\
+\vdots\\
+ \varepsilon_{m}
+\end{array}\right]
+\]</div>
+<p>记第 <span class="arithmatex">\(j\)</span> 个因子得分函数为</p>
+<div class="arithmatex">\[
+F_j=\beta_{j1}X_1+\dotsb+\beta_{jm}X_m,\quad j=1,2,\dots,r
+\]</div>
+<p>因子载荷矩阵的元素表示了样本和因子的相关系数，有</p>
+<div class="arithmatex">\[
+\alpha_{ij}=\gamma_{\tiny X_i F_j}=E(X_iF_j)=E[X_i(\beta_{j1}X_1+\dotsb+\beta_{jm}X_m)]=\beta_{j1}\gamma_{i1}+\dotsb+\beta_{jm}\gamma_{im}
+\]</div>
+<p>有</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+ \gamma_{11} &amp; \gamma_{12} &amp; \dotsb &amp; \gamma_{1m}\\
+  \gamma_{21}&amp;\gamma_{22}  &amp; \dotsb &amp; \gamma_{2m}\\
+  \vdots &amp;  \vdots  &amp; \ddots &amp;  \vdots \\
+  \gamma_{m1}&amp;\gamma_{m2}  &amp; \dotsb &amp; \gamma_{mm}
+\end{bmatrix}
+\begin{bmatrix}
+ \beta_{j1}\\
+  \beta_{j2}\\
+ \vdots\\
+ \beta_{jm}
+\end{bmatrix}=
+\begin{bmatrix}
+ \alpha_{1j}\\
+ \alpha_{2j} \\
+\vdots\\
+ \alpha_{mj}
+\end{bmatrix}
+\]</div>
+<p>其中三个矩阵分布代表原始变量系数相关系数矩阵 <span class="arithmatex">\(\boldsymbol{R}\)</span> 、第 <span class="arithmatex">\(j\)</span> 个因子得分函数系数、载荷矩阵第 <span class="arithmatex">\(j\)</span> 列。</p>
+<p>得</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+ \beta_{11} &amp; \beta_{12} &amp; \dotsb &amp; \beta_{1m}\\
+  \beta_{21}&amp;\beta_{22}  &amp; \dotsb &amp; \beta_{2m}\\
+  \vdots &amp;  \vdots  &amp; \ddots &amp;  \vdots \\
+  \beta_{m1}&amp;\beta_{m2}  &amp; \dotsb &amp; \beta_{rm}
+\end{bmatrix}^T=\boldsymbol{R}^{-1}\boldsymbol{\Lambda}
+\]</div>
+<p>因此，因子得分估计为</p>
+<div class="arithmatex">\[
+\hat{\boldsymbol{F}}=\boldsymbol{\Lambda}^T\boldsymbol{R}^{-1}\boldsymbol{X}
+\]</div>
+<div class="arithmatex">\[
+\hat{\boldsymbol{F}}=\boldsymbol{\Lambda}^T(\boldsymbol{\Lambda}\boldsymbol{\Lambda}^T+\boldsymbol{D})\boldsymbol{X}
+\]</div>
+<blockquote>
+<p>司守奎给出的结果有误</p>
+</blockquote>
+<h4 id="_17">两种估计方法的比较<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[
+\begin{array}{l}\hat{\boldsymbol{F}}(1)=(\boldsymbol{\Lambda}^T\boldsymbol{D}^{-1}\boldsymbol{\Lambda})^{-1}\boldsymbol{\Lambda}^T\boldsymbol{D}^{-1}\boldsymbol{X},\\
+\hat{\boldsymbol{F}}(2)=\boldsymbol{\Lambda}^T(\boldsymbol{\Lambda}\boldsymbol{\Lambda}^T+\boldsymbol{D})\boldsymbol{X}\end{array}
+\]</div>
+<ul>
+<li><strong>两者得分关系</strong></li>
+</ul>
+<div class="arithmatex">\[
+\hat{\boldsymbol{F}}(1)=(I_r+(\boldsymbol{\Lambda}^T\boldsymbol{D}^{-1}\boldsymbol{\Lambda})^{-1})\hat{\boldsymbol{F}}(2)
+\]</div>
+<p><span class="arithmatex">\((\boldsymbol{\Lambda}^T\boldsymbol{D}^{-1}\boldsymbol{\Lambda})^{-1}\)</span> 正定性得到 <span class="arithmatex">\(\hat{\boldsymbol{F}}(1)\)</span> 不小于 <span class="arithmatex">\(\hat{\boldsymbol{F}}(2)\)</span> ； <span class="arithmatex">\(\boldsymbol{\Lambda}^T\boldsymbol{D}^{-1}\boldsymbol{\Lambda}\)</span> 近似 <span class="arithmatex">\(0\)</span> 时，结果几乎相等。</p>
+<ul>
+<li><strong>无偏性</strong></li>
+</ul>
+<div class="arithmatex">\[
+E(\hat{\boldsymbol{F}}(1)|\boldsymbol{F})=\boldsymbol{F}\\
+E(\hat{\boldsymbol{F}}(2)|\boldsymbol{F})=(I_r+(\boldsymbol{\Lambda}^T\boldsymbol{D}^{-1}\boldsymbol{\Lambda})^{-1})\boldsymbol{\Lambda}^T\boldsymbol{D}^{-1}\boldsymbol{\Lambda}\boldsymbol{F}
+\]</div>
+<p>第一种估计无偏，回归估计有偏。</p>
+<ul>
+<li><strong>均方误差</strong></li>
+</ul>
+<div class="arithmatex">\[
+\mathrm{E}\left[(\hat{\boldsymbol{F}}(1)-\boldsymbol{F})(\hat{\boldsymbol{F}}(1)-{ }^{I} \boldsymbol{F})^{\prime} \mid \boldsymbol{F}\right]=\left(\boldsymbol{\Lambda}^{\prime} \boldsymbol{D}^{-1} \boldsymbol{\Lambda}\right)^{-1} \\ 
+\mathrm{E}\left[(\hat{\boldsymbol{F}}(2)-\boldsymbol{F})(\hat{\boldsymbol{F}}(2)-{ }^{I} \boldsymbol{F})^{\prime} \mid \boldsymbol{F}\right]=\left(I_{m}+\boldsymbol{\Lambda}^{\prime} \boldsymbol{D}^{-1} \boldsymbol{\Lambda}\right)^{-1}
+\]</div>
+<p>这表示第二种估计（汤普森因子得分）有较小的平均预报误差.</p>
+<h2 id="_18">缺陷<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>因子分析是十分主观的，在许多出版的资料中，因子分析模型都用少数可命名因子提供了合理解释。实际上，绝大多数因子分析并没有产生如此明确的结果。评价因子分析质量的法则尚未很好量化，因子分析的质量参差不齐。</p>
+<h2 id="_19">备注<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<ul>
+<li>本文章花费大量时间查询比较各版本的过程，最终以司守奎的参数名为主体，调整了部分参数命名以符合笔者习惯。</li>
+<li>本文章的格式不清晰，多次差错后依然有公式格式，变量名错误的问题，还请见谅。</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>司守奎 孙兆亮. 数学建模算法与运用[M]. 第2版. 第240页.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://zhuanlan.zhihu.com/p/340497643">https://zhuanlan.zhihu.com/p/340497643</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://www.jianshu.com/p/2456837720fb">https://www.jianshu.com/p/2456837720fb</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://zhuanlan.zhihu.com/p/24008426">https://zhuanlan.zhihu.com/p/24008426</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>高惠璇. 应用多元统计分析[M]. 第2版. 第310页.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>Wolfgang Hardle Leopold Simar. Applied Multivariate Statistical Analysis[M].&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        
+      
+    
+  </body>
+</html>

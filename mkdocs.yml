@@ -1,0 +1,88 @@
+site_name: 交大数学建模导航 - MathNav
+site_url: # 设置站点的 URL. 这将添加带有规范的 URL 的 link 标签到 HTML 头部.
+repo_url: # 如果设置了该项, 每个页面将会添加一个链接到你的 GitHub 或 Bitbucket 版本库.
+repo_name: 'GitHub'
+site_description: 西南交通大学数学建模协会提供的数学建模导航。
+site_author: dramwig
+
+docs_dir: source # 资源文件
+site_dir: docs # 网站
+
+nav:
+  - Home: index.md
+  - Home-en: index.en.md
+  - Update: update.md
+  - 书籍: books/index.md
+  - 模型:
+    - 灰色关联分析: 模型/灰色关联分析.md
+    - 回归分析: 模型/回归分析.md
+    - 聚类分析: 模型/聚类分析.md
+    - 模糊综合评价: 模型/模糊综合评价.md
+    - 因子分析: 模型/因子分析.md
+    - 优劣解距离法: 模型/优劣解距离法.md
+    - 主成分分析: 模型/主成分分析.md
+    - 层次分析法: 模型/层次分析法.md
+    - 插值算法: 模型/插值算法.md
+    - 典型相关分析: 模型/典型相关分析.md
+    - 分类模型: 模型/分类模型.md
+  - 算法:
+    - 拟牛顿法: 算法/拟牛顿法.md
+    - 牛顿迭代与高斯牛顿法: 算法/牛顿迭代与高斯牛顿法.md
+  - 编程:
+    - 登山问题: 编程/登山问题.md
+    - 二维导热: 编程/二维导热.md
+    - 旅行商问题: 编程/旅行商问题.md
+    - 山区地貌: 编程/山区地貌.md
+
+#主题
+theme:
+  name: 'material'
+  language: 'zh'
+  palette:
+    primary: 'white'
+    accent: 'indigo'
+  favicon: 'https://pic.imgdb.cn/item/64c26a631ddac507cc8cd206.webp'
+  logo: 'img/logo.svg'
+
+
+markdown_extensions:
+  - admonition  # 提示块
+  - footnotes  # 脚注
+  - meta  # 定义元数据，通过文章上下文控制，如disqus
+  - pymdownx.caret  # 下划线上标
+  - pymdownx.tilde  # 删除线下标
+  - pymdownx.critic  # 增加删除修改高亮注释，可修饰行内或段落
+  - pymdownx.details  # 提示块可折叠
+  - pymdownx.inlinehilite  # 行内代码高亮
+  - pymdownx.mark  # 文本高亮
+  - pymdownx.smartsymbols  # 符号转换
+  - pymdownx.superfences  # 代码嵌套在列表里
+  - pymdownx.details
+  - pymdownx.tasklist
+  - pymdownx.emoji
+  - pymdownx.arithmatex:
+      generic: true
+  - codehilite:    # 代码高亮，显示行号
+      guess_lang: false
+      linenums: true
+  - toc: 
+      permalink: true
+  - pymdownx.betterem:  # 对加粗和斜体更好的检测
+      smart_enable: all
+  - pymdownx.emoji:  # 表情
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.magiclink  # 自动识别超链接
+  - pymdownx.tasklist:  # 复选框checklist
+      custom_checkbox: true
+
+# PDF导出插件
+plugins:
+  - search
+
+#扩展样式
+extra_css:
+  - resources/css/extra.css
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
