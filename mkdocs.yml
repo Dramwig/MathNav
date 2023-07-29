@@ -13,7 +13,8 @@ nav:
   - Home-en: index.en.md
   - Update: update.md
   - 书籍: books/index.md
-  - 模型:
+  - 资料: materials/index.md
+  - 模型: 
     - 灰色关联分析: 模型/灰色关联分析.md
     - 回归分析: 模型/回归分析.md
     - 聚类分析: 模型/聚类分析.md

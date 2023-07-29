@@ -4,6 +4,7 @@ MathNav, or mathematical modelling navigation, is a mathematical modelling learn
 
 ## Collection
 
+* **Competition problems, papers** - Mathematical Modeling Size Competition's past competition problems and corresponding papers.
 * **Books** - electronic versions of related books.
 * **Models, Algorithms** - notes on learning content, etc.
 * **Materials** - related learning documents, PPTs, etc.
